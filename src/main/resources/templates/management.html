@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>归尘博客管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/line-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/line-awesome-font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.7.0.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/editor/css/editormd.css">
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+    <header>
+        <div class="container">
+            <div class="header-data">
+                <div class="forum-bar">
+                    <a style="display: inline-block" href="index.html" title="">
+                        <img src="../static/images/cloud.png" alt="">
+                    </a>
+                    <h2 style="float: right">博客管理系统</h2>
+                </div>
+                <div class="user-account">
+                    <div class="user-info">
+                        <img src="../static/images/resources/user.png" alt="">
+                        <a href="#" title="">John</a>
+                        <i class="la la-sort-down"></i>
+                    </div>
+                    <div class="user-account-settingss">
+                        <a href="#" title=""><h3 class="tc">Logout</h3></a>
+                    </div><!--user-account-settingss end-->
+                </div>
+            </div><!--header-data end-->
+        </div>
+    </header>
+
+
+    <section class="profile-account-setting">
+        <div class="container">
+            <div class="account-tabs-setting">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="acc-leftbar">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-deactivate-tab" data-toggle="tab"
+                                     href="#nav-deactivate" role="tab" aria-controls="nav-deactivate" aria-selected="false">
+                                    <i class="fa fa-pencil"></i>发布博客</a>
+                                <a class="nav-item nav-link" id="nav-requests-tab" data-toggle="tab"
+                                   href="#nav-requests" role="tab" aria-controls="nav-requests" aria-selected="false">
+                                    <i class="fa fa-book"></i>博客管理</a>
+                                <a class="nav-item nav-link" id="security-login" data-toggle="tab"
+                                   href="#tab" role="tab" aria-controls="security-login" aria-selected="false">
+                                    <i class="fa fa-bookmark"></i>标签管理</a>
+                                <a class="nav-item nav-link" id="nav-status-tab" data-toggle="tab" href="#nav-status"
+                                   role="tab" aria-controls="nav-status" aria-selected="false">
+                                    <i class="fa fa-line-chart"></i>统计</a>
+                                <a class="nav-item nav-link" id="nav-notification-tab" data-toggle="tab"
+                                   href="#nav-notification" role="tab" aria-controls="nav-notification" aria-selected="false">
+                                    <i class="fa fa-bell"></i>消息</a>
+                                <a class="nav-item nav-link" id="nav-password-tab" data-toggle="tab"
+                                   href="#nav-password" role="tab" aria-controls="nav-password" aria-selected="false">
+                                    <i class="fa fa-lock"></i>修改密码</a>
+                                <a class="nav-item nav-link" id="nav-acc-tab" data-toggle="tab" href="#nav-acc"
+                                   role="tab" aria-controls="nav-acc" aria-selected="true">
+                                    <i class="la la-cogs"></i>账号设置</a>
+                            </div>
+                        </div><!--acc-leftbar end-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-deactivate" role="tabpanel" aria-labelledby="nav-deactivate-tab">
+                                <div class="acc-setting">
+                                    <form>
+                                        <div class="cp-field">
+                                            <h5>标题</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="title" placeholder="描述一下主要内容吧！">
+                                            </div>
+                                        </div>
+                                        <div class="cp-field">
+                                            <h5 style="float: none">标签</h5>
+                                            <div class="select-tab row align-items-center" style="margin-bottom: 10px">
+                                                <ul class="quest-tags-b" style="float:left;margin-top: 0;width: auto">
+                                                    <li>Work<i class="fa fa-times-circle" onclick="onClickClose(this)" style="margin-left:5px;margin-right: -2px;cursor:pointer"></i></li>
+                                                    <li>Php<i class="fa fa-times-circle" onclick="onClickClose(this)" style="margin-left:5px;margin-right: -2px;cursor:pointer"></i></li>
+                                                    <li>Design<i class="fa fa-times-circle" onclick="onClickClose(this)" style="margin-left:5px;margin-right: -2px;cursor:pointer"></i></li>
+                                                </ul>
+                                                <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    添加一个标签
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" onclick="onClickDropdownItem(this)" href="#">c++</a>
+                                                    <a class="dropdown-item" onclick="onClickDropdownItem(this)" href="#">php</a>
+                                                    <a class="dropdown-item" onclick="onClickDropdownItem(this)" href="#">Design</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="test-editormd">
+                                            <textarea style="display:none;">[TOC]
+
+#### Disabled options
+
+- TeX (Based on KaTeX);
+- Emoji;
+- Task lists;
+- HTML tags decode;
+- Flowchart and Sequence Diagram;
+
+#### Editor.md directory
+
+    editor.md/
+            lib/
+            css/
+            scss/
+            tests/
+            fonts/
+            images/
+            plugins/
+            examples/
+            languages/
+            editormd.js
+            ...
+
+```html
+&lt;!-- English --&gt;
+&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
+
+&lt;!-- 繁體中文 --&gt;
+&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
+```
+</textarea>
+                                        </div>
+                                        <div class="save-stngs pd3">
+                                            <ul class="row justify-content-center">
+                                                <li>
+                                                    <button type="submit">暂存一下</button>
+                                                </li>
+                                                <li>
+                                                    <button type="submit">发布</button>
+                                                </li>
+                                            </ul>
+                                        </div><!--save-stngs end-->
+                                    </form>
+                                </div><!--acc-setting end-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-requests" role="tabpanel" aria-labelledby="nav-requests-tab">
+                                <div class="acc-setting">
+                                    <div class="requests-list">
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo1">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo1" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo2">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo2" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo3">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo3" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo4">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo4" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo5">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo5" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo6">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo6" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <nav aria-label="Page navigation example" style="width: 100%">
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div><!--requests-list end-->
+                                </div><!--acc-setting end-->
+                            </div>
+                            <div class="tab-pane fade" id="tab" role="tabpanel" aria-labelledby="nav-acc-tab">
+                                <div class="acc-setting">
+                                    <div class="cp-field">
+                                        <div class="cpp-fiel row">
+                                            <input class="col-md-10 col-xs-8" style="width: 90%" type="text" name="title" placeholder="创建一个新标签！">
+                                            <div class="save-stngs col-md-2 col-xs-4" style="width: auto;float: right;padding: 0px">
+                                                <ul style="float: right">
+                                                    <li>
+                                                        <button type="button">创建</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="requests-list">
+                                        <div class="request-details align-items-center">
+                                            <div class="request-info">
+                                                <h3 style="font-size: 20px">c++</h3>
+                                            </div>
+                                        <div class="accept-feat">
+                                            <ul>
+                                                <li>
+                                                    <button type="submit" class="close-req"><i
+                                                            class="la la-close"></i></button>
+                                                </li>
+                                            </ul>
+                                        </div><!--accept-feat end-->
+                                    </div><!--request-detailse end-->
+                                        <div class="request-details align-items-center">
+                                            <div class="request-info">
+                                                <h3 style="font-size: 20px">c++</h3>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details align-items-center">
+                                            <div class="request-info">
+                                                <h3 style="font-size: 20px">c++</h3>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details align-items-center">
+                                            <div class="request-info">
+                                                <h3 style="font-size: 20px">c++</h3>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details align-items-center">
+                                            <div class="request-info">
+                                                <h3 style="font-size: 20px">c++</h3>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                        </div><!--request-detailse end-->
+                                        <nav aria-label="Page navigation example" style="width: 100%">
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div><!--requests-list end-->
+                                </div><!--acc-setting end-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-status" role="tabpanel" aria-labelledby="nav-status-tab">
+                                <div class="acc-setting">
+                                    <h3>流量统计</h3>
+                                    <div class="profile-bx-details">
+                                        <div class="row">
+                                            <div class="widget widget-feat">
+                                                <ul>
+                                                    <li class="col-lg-3 col-md-6 col-sm-12">
+                                                        <h2 class="h3">获赞</h2>
+                                                        <i class="fa fa-heart"></i>
+                                                        <span>1185</span>
+                                                    </li>
+                                                    <li>
+                                                        <h2 class="h3">评论</h2>
+                                                        <i class="fa fa-comment"></i>
+                                                        <span>1165</span>
+                                                    </li>
+                                                    <li>
+                                                        <h2 class="h3">分享</h2>
+                                                        <i class="fa fa-share-alt"></i>
+                                                        <span>1120</span>
+                                                    </li>
+                                                    <li>
+                                                        <h2 class="h3">浏览</h2>
+                                                        <i class="fa fa-eye"></i>
+                                                        <span>1009</span>
+                                                    </li>
+                                                </ul>
+                                            </div><!--widget-feat end-->
+                                        </div>
+                                    </div><!--profile-bx-details end-->
+                                    <div class="pro-work-status">
+                                        <!-- <h4>Work Status  -  Last Months Working Status</h4> -->
+                                    </div><!--pro-work-status end-->
+                                </div><!--acc-setting end-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-notification" role="tabpanel" aria-labelledby="nav-notification-tab">
+                                <div class="acc-setting">
+                                    <h3>消息</h3>
+                                    <div class="notifications-list">
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img1.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img2.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Poonam Verma</a> Bid on your Latest project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img3.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Tonney Dhman</a> Comment on your project.</h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img1.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img1.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img2.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Poonam Verma </a> Bid on your Latest project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img3.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Tonney Dhman</a> Comment on your project</h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="../static/images/resources/ny-img1.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div><!--notification-info -->
+                                        </div><!--notfication-details end-->
+                                    </div><!--notifications-list end-->
+                                    <nav aria-label="Page navigation example" style="width: 100%">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div><!--acc-setting end-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
+                                <div class="acc-setting">
+                                    <h3>修改密码</h3>
+                                    <form>
+                                        <div class="cp-field">
+                                            <h5>旧密码</h5>
+                                            <div class="cpp-fiels">
+                                                <input type="password" name="old-password" placeholder="Old Password">
+                                                <i class="fa fa-lock"></i>
+                                            </div>
+                                        </div>
+                                        <div class="cp-field">
+                                            <h5>新密码</h5>
+                                            <div class="cpp-fiels">
+                                                <input type="password" name="new-password" placeholder="New Password">
+                                                <i class="fa fa-lock"></i>
+                                            </div>
+                                        </div>
+                                        <div class="cp-field">
+                                            <h5>确认密码</h5>
+                                            <div class="cpp-fiels">
+                                                <input type="password" name="repeat-password" placeholder="Repeat Password">
+                                                <i class="fa fa-lock"></i>
+                                            </div>
+                                        </div>
+                                        <div class="save-stngs pd2">
+                                            <ul>
+                                                <li>
+                                                    <button type="submit">保存</button>
+                                                </li>
+                                                <li>
+                                                    <button type="reset">重置</button>
+                                                </li>
+                                            </ul>
+                                        </div><!--save-stngs end-->
+                                    </form>
+                                </div><!--acc-setting end-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-acc" role="tabpanel" aria-labelledby="nav-acc-tab">
+                                    <div class="acc-setting">
+                                        <h3>账户设置</h3>
+                                        <form>
+                                            <div class="cp-field">
+                                                <h5>昵称</h5>
+                                                <div class="cpp-fiels">
+                                                    <input type="text" name="old-password" placeholder="NickName">
+                                                    <i class="fa fa-male"></i>
+                                                </div>
+                                            </div>
+                                            <div class="cp-field">
+                                                <h5>邮箱</h5>
+                                                <div class="cpp-fiels">
+                                                    <input type="email" name="new-password" placeholder=" Email">
+                                                    <i class="fa fa-envelope-square"></i>
+                                                </div>
+                                            </div>
+                                            <div class="cp-field">
+                                                <h5>GitHub</h5>
+                                                <div class="cpp-fiels">
+                                                    <input type="text" name="repeat-password" placeholder=" GitHub">
+                                                    <i class="fa fa-github"></i>
+                                                </div>
+                                            </div>
+                                            <div class="cp-field">
+                                                <h5>个人简介</h5>
+                                                <div class="cpp-fiels">
+                                                    <input type="text" name="repeat-password" placeholder=" 介绍一下自己吧">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </div>
+                                            </div>
+                                            <div class="cp-field" style="width: 50%">
+                                                <h5 class="h5">头像</h5>
+                                                <div class="cpp-fiels row align-items-center">
+                                                    <img src="../static/images/cmp-icon1.png">
+                                                    <input style="width: auto;border: none;height: auto" type="file" name="repeat-password">
+                                                </div>
+                                            </div>
+                                            <div class="cp-field" style="width: 50%">
+                                                <h5 class="h5">打赏码</h5>
+                                                <div class="cpp-fiels row align-items-center">
+                                                    <img src="../static/images/cmp-icon1.png">
+                                                    <input style="width: auto;border: none;height: auto" type="file" name="repeat-password">
+                                                </div>
+                                                <div class="cpp-fiels row align-items-center">
+                                                    <img src="../static/images/cmp-icon1.png">
+                                                    <input style="width: auto;border: none;height: auto" type="file" name="repeat-password">
+                                                </div>
+                                            </div>
+                                            <div class="save-stngs pd2">
+                                                <ul style="text-align: center;">
+                                                    <li>
+                                                        <button type="submit">保存</button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--save-stngs end-->
+                                        </form>
+                                    </div><!--acc-setting end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--account-tabs-setting end-->
+        </div>
+    </section>
+
+</div><!--theme-layout end-->
+
+<div class="chatbox-list">
+    <div class="chatbox">
+        <div class="chat-mg bx" style="margin: 20px 10px">
+            <div class="go-top">
+                <div class="arrow" style="text-align: center"><i class="fa fa-chevron-up"></i></div>
+            </div>
+        </div>
+    </div>
+</div><!--chatbox-list end-->
+
+<footer class="myfooter">
+    <div class="footy-sec mn no-margin">
+        <div class="container">
+            <p class="text-center" style="float: none"><img src="../static/images/copy-icon2.png" alt="">Copyright 2020 本归尘博客系统由游马版权所有</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../static/js/popper.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="../static/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="../static/js/script.js"></script>
+<script type="text/javascript" src="../static/lib/editor/editormd.min.js"></script>
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 1000)
+                $('div.go-top').show();
+            else
+                $('div.go-top').hide();
+        });
+        $('div.go-top').click(function() {
+            $('html, body').animate({scrollTop: 0}, 1000);
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var testEditor;
+
+    $(function() {
+        testEditor = editormd("test-editormd", {
+            width   : "100%",
+            height  : 640,
+            syncScrolling : "single",
+            path    : "../static/lib/editor/lib/"
+        });
+
+        /*
+        // or
+        testEditor = editormd({
+            id      : "test-editormd",
+            width   : "90%",
+            height  : 640,
+            path    : "../lib/"
+        });
+        */
+    });
+    function onClickDropdownItem(x) {
+        var tab=document.createElement("li");
+        var tabi=document.createElement("i");
+        tab.innerHTML=x.innerHTML;
+        tabi.className = "fa fa-times-circle";
+        tabi.setAttribute("onclick", "onClickClose(this)");
+        tabi.style="margin-left:5px;margin-right: -2px;cursor:pointer";
+        tab.append(tabi);
+        $(".quest-tags-b").append(tab);
+        if(x.parentElement.childElementCount===1){
+            x.innerHTML="快去添加新的标签吧！";
+            x.onclick=null;
+        }else{
+            x.remove();
+        }
+    }
+    function onClickClose(x) {
+        var item=document.createElement("a");
+        item.className="dropdown-item";
+        item.setAttribute("onclick", "onClickDropdownItem(this)");
+        item.innerHTML=x.previousSibling.nodeValue;
+        var menu = $(".dropdown-menu")[0];
+        if (menu.firstElementChild.innerHTML==="快去添加新的标签吧！") {
+            menu.innerHTML="";
+        }
+        menu.append(item);
+
+        x.parentNode.remove();
+    }
+</script>
+
+</body>
+</html>
