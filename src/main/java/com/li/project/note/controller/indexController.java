@@ -1,4 +1,4 @@
-package com.li.project.blog.controller;
+package com.li.project.note.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
