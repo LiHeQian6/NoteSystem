@@ -1,4 +1,4 @@
-package com.li.project.blog.handler;
+package com.li.project.note.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,13 +1,13 @@
-package com.li.project.blog;
+package com.li.project.note;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogApplication {
+public class NoteApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BlogApplication.class, args);
+        SpringApplication.run(NoteApplication.class, args);
     }
 
 }

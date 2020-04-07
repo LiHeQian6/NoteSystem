@@ -1,2 +1,2 @@
-# BlogNoteSystem
-博客笔记系统
+# NoteSystem
+知否笔记
