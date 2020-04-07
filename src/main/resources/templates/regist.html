@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>知否笔记登录</title>
+    <title>知否笔记注册</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
@@ -14,17 +14,13 @@
     <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-<!--    <link rel="stylesheet" type="text/css" href="../static/css/loginStyle.css">-->
+    <link rel="stylesheet" type="text/css" href="../static/css/registeStyle.css">
     <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
 </head>
 
-
 <body class="sign-in">
 
-
 <div class="wrapper">
-
-
     <div class="sign-in-page">
         <div class="signin-popup">
             <div class="signin-pop shadow-lg p-3 mb-5 bg-white rounded">
@@ -34,9 +30,9 @@
                             <div class="sign_in_sec current " id="tab-1">
                                 <div class="login-gtn-group">
                                     <div style="margin: 0 auto" class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="lo-btn" onclick="window.location.href='/login'">登录</button>
+                                        <button type="button" class="r-lo-btn" onclick="window.location.href='/login'">登录</button>
                                         <h2 style="color: #bcbcbc;margin: 0">·</h2>
-                                        <button type="button" class="re-btn" onclick="window.location.href='/regist'">注册</button>
+                                        <button type="button" class="r-re-btn" onclick="window.location.href='/regist'">注册</button>
                                     </div>
                                 </div>
                                 <form style="text-align: center;margin-bottom: 10px">
@@ -50,7 +46,7 @@
                                                       </svg>
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" name="account" placeholder="邮 箱">
+                                                <input type="text" class="form-control" name="account" placeholder="请输入邮箱">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
@@ -63,7 +59,30 @@
                                                   </svg>
                                                 </span>
                                                 </div>
-                                                <input type="password" class="form-control" name="password" placeholder="密 码">
+                                                <input type="password" class="form-control" name="password" placeholder="请输入密码">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 no-pdd">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                  <svg class="bi bi-lock-fill" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="11" height="9" x="2.5" y="7" rx="2"/>
+                                                    <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 117 0v3h-1V4a2.5 2.5 0 00-5 0v3h-1V4z" clip-rule="evenodd"/>
+                                                  </svg>
+                                                </span>
+                                                </div>
+                                                <input type="password" class="form-control" name="password" placeholder="再次输入密码">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 no-pdd">
+                                            <div class="d-flex flex-row mb-3 in-ver-div">
+                                                <div class="col-lg-7" style="padding: 0">
+                                                    <input type="text" style="text-align: center" class="form-control in-ver " name="vertical" placeholder="请输入验证码">
+                                                </div>
+                                                <div class="col-lg-5 btn-div-ver">
+                                                    <button type="submit" class="btn btn-primary btn-get-ver" value="submit">获取验证码</button>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">

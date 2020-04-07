@@ -2325,10 +2325,20 @@ select {
     border-width: 0 0 2px 0;
     border-color: #ea7c31;
 }
+.lo-btn:hover{
+    cursor: pointer;
+}
+.lo-btn:focus{
+    outline: none;
+}
 .re-btn:hover{
     background-color: transparent;
     border-color: #ea7c31;
     border-width: 0 0 2px 0;
+    cursor: pointer;
+}
+.re-btn:focus{
+    outline: none;
 }
 .re-btn{
     background-color: transparent;
@@ -2493,7 +2503,6 @@ select {
 
 .sign_in_sec form input,
 .sign_in_sec form select {
-    width: 100%;
     padding: 0 15px 0 15px;
     color: #b2b2b2;
     font-size: 14px;
@@ -2507,11 +2516,9 @@ select {
 
 .sign_in_sec form button {
     color: #ffffff;
-    font-size: 16px;
     background-color: #ea7c31;
     border: 0;
     font-weight: 500;
-    margin-top: 30px;
     cursor: pointer;
 }
 
@@ -3934,6 +3941,7 @@ a:hover {
     padding: 0;
 }
 .loginBtn-div{
+    padding-top: 10px;
     padding-left: 70px;
     padding-right: 70px;
 }

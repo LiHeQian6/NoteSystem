@@ -1,0 +1,45 @@
+.r-lo-btn{
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 22px;
+    color: #bcbcbc;
+    border-width: 0 0 0 0;
+}
+.r-lo-btn:hover{
+    background-color: transparent;
+    border-color: #ea7c31;
+    border-width: 0 0 2px 0;
+    cursor: pointer;
+}
+.r-lo-btn:focus{
+    outline: none;
+}
+.r-re-btn:hover{
+    cursor: pointer;
+}
+.r-re-btn:focus{
+    outline: none;
+}
+.r-re-btn{
+    background: transparent;
+    font-weight: bold;
+    font-size: 22px;
+    color: #ea7c31;
+    border-width: 0 0 2px 0;
+    border-color: #ea7c31;
+}
+.in-ver-div{
+    padding-top: 10px;
+    width: 100%;
+}
+.in-ver{
+    padding-right: 30px;
+}
+.btn-div-ver{
+    min-height: 100%;
+    padding: 0;
+}
+.btn-get-ver{
+    font-size: 14px;
+    padding: 9px 9px 9px 9px;
+}
