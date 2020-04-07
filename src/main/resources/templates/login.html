@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>归尘博客系统管理登录页</title>
+    <title>知否笔记登录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
@@ -28,31 +28,52 @@
         <div class="signin-popup">
             <div class="signin-pop">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 ">
                         <div class="login-sec">
                             <div class="sign_in_sec current " id="tab-1">
-                                <h3 style="text-align: center">欢迎使用归尘博客系统</h3>
+                                <div class="login-gtn-group">
+                                    <div style="margin: 0 auto" class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="lo-btn" onclick="">登录</button>
+                                        <h2 style="color: #bcbcbc;margin: 0">·</h2>
+                                        <button type="button" class="re-btn">注册</button>
+                                    </div>
+                                </div>
                                 <form style="text-align: center;margin-bottom: 10px">
                                     <div class="row">
                                         <div class="col-lg-12 no-pdd">
-                                            <div class="sn-field">
-                                                <input type="text" name="username" placeholder="用户名">
-                                                <i class="la la-user"></i>
-                                            </div><!--sn-field end-->
-                                        </div>
-                                        <div class="col-lg-12 no-pdd">
-                                            <div class="sn-field">
-                                                <input type="password" name="password" placeholder="密     码">
-                                                <i class="la la-lock"></i>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                      <svg class="bi bi-person-fill" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                                                      </svg>
+                                                    </span>
+                                                </div>
+                                                <input type="text" class="form-control" name="account" placeholder="邮 箱">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
-                                            <button type="submit" value="submit">登录</button>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                  <svg class="bi bi-lock-fill" width="1.1em" height="1.1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="11" height="9" x="2.5" y="7" rx="2"/>
+                                                    <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 117 0v3h-1V4a2.5 2.5 0 00-5 0v3h-1V4z" clip-rule="evenodd"/>
+                                                  </svg>
+                                                </span>
+                                                </div>
+                                                <input type="password" class="form-control" name="password" placeholder="密 码">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 no-pdd">
+                                            <div class="loginBtn-div">
+                                                <button type="submit" class="btn btn-primary loginBtn" value="submit">登录</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
                                 <div>
-                                    <img class="img-fluid mx-auto d-block" style="float: none" src="../static/images/cm-main-img.png" alt="">
+                                    <img class="img-fluid mx-auto d-block" style="float: none;padding-top: 15px" src="../static/images/cm-main-img.png" alt="">
                                 </div><!--login-resources end-->
                             </div><!--sign_in_sec end-->
                         </div><!--login-sec end-->
@@ -60,16 +81,14 @@
                 </div>
             </div><!--signin-pop end-->
         </div><!--signin-popup end-->
-        <div class="footy-sec">
-            <div class="container text-center">
-                <p style="float: none"><img style="float: none" src="../static/images/copy-icon.png" alt="">Copyright 2020 本归尘博客系统由游马版权所有</p>
-            </div>
-        </div><!--footy-sec end-->
     </div><!--sign-in-page end-->
 
-
 </div><!--theme-layout end-->
-
+<!--<div class="footy-sec">-->
+<!--    <div class="container text-center">-->
+<!--        <p style="float: none"><img style="float: none" src="../static/images/copy-icon.png" alt="">Copyright 2020 本归尘博客系统由游马版权所有</p>-->
+<!--    </div>-->
+<!--</div>&lt;!&ndash;footy-sec end&ndash;&gt;-->
 
 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="../static/js/popper.js"></script>

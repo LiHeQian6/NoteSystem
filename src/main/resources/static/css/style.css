@@ -33,109 +33,109 @@
 										Reset Css
 ===================================================================================== */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
+/*html, body, div, span, applet, object, iframe,*/
+/*h1, h2, h3, h4, h5, h6, p, blockquote, pre,*/
+/*a, abbr, acronym, address, big, cite, code,*/
+/*del, dfn, em, img, ins, kbd, q, s, samp,*/
+/*small, strike, strong, sub, sup, tt, var,*/
+/*b, u, i, center,*/
+/*dl, dt, dd, ol, ul, li,*/
+/*fieldset, form, label, legend,*/
+/*table, caption, tbody, tfoot, thead, tr, th, td,*/
+/*article, aside, canvas, details, embed,*/
+/*figure, figcaption, footer, header, hgroup,*/
+/*menu, nav, output, ruby, section, summary,*/
+/*time, mark, audio, video {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    border: 0;*/
+/*    font-size: 100%;*/
+/*    font: inherit;*/
+/*    vertical-align: baseline;*/
+/*}*/
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+/*!* HTML5 display-role reset for older browsers *!*/
+/*article, aside, details, figcaption, figure,*/
+/*footer, header, hgroup, menu, nav, section {*/
+/*    display: block;*/
+/*}*/
 
-body {
-    line-height: 1;
-    font-family: 'Source Sans Pro', sans-serif;
-    overflow-x: hidden;
-    font-weight: 400;
-    background-color: #eeeeee;
-}
+/*body {*/
+/*    line-height: 1;*/
+/*    font-family: 'Source Sans Pro', sans-serif;*/
+/*    overflow-x: hidden;*/
+/*    font-weight: 400;*/
+/*    background-color: #eeeeee;*/
+/*}*/
 
-ol, ul {
-    list-style: none;
-}
+/*ol, ul {*/
+/*    list-style: none;*/
+/*}*/
 
-a:hover {
-    text-decoration: none;
-}
+/*a:hover {*/
+/*    text-decoration: none;*/
+/*}*/
 
-blockquote, q {
-    quotes: none;
-}
+/*blockquote, q {*/
+/*    quotes: none;*/
+/*}*/
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
+/*blockquote:before, blockquote:after,*/
+/*q:before, q:after {*/
+/*    content: '';*/
+/*    content: none;*/
+/*}*/
 
-button {
-    outline: none;
-}
+/*button {*/
+/*    outline: none;*/
+/*}*/
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+/*table {*/
+/*    border-collapse: collapse;*/
+/*    border-spacing: 0;*/
+/*}*/
 
-* {
-    margin: 0;
-    padding: 0;
-}
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
 
-a:focus {
-    text-decoration: none;
-    outline: none;
-}
+/*a:focus {*/
+/*    text-decoration: none;*/
+/*    outline: none;*/
+/*}*/
 
-a:hover {
-    color: #fff;
-}
+/*a:hover {*/
+/*    color: #fff;*/
+/*}*/
 
-button {
-    outline: none;
-}
+/*button {*/
+/*    outline: none;*/
+/*}*/
 
-input {
-    outline: none;
-}
+/*input {*/
+/*    outline: none;*/
+/*}*/
 
-textarea {
-    outline: none;
-}
+/*textarea {*/
+/*    outline: none;*/
+/*}*/
 
-section {
-    float: left;
-    width: 100%;
-    position: relative;
-}
+/*section {*/
+/*    float: left;*/
+/*    width: 100%;*/
+/*    position: relative;*/
+/*}*/
 
-img {
-    float: left;
-}
+/*img {*/
+/*    float: left;*/
+/*}*/
 
-p {
-    font-size: 14px;
-    line-height: 26px;
-    color: #666666;
-}
+/*p {*/
+/*    font-size: 14px;*/
+/*    line-height: 26px;*/
+/*    color: #666666;*/
+/*}*/
 
 
 /* ================ CROSS BROWSER COMPATABILITY =============== */
@@ -2211,7 +2211,7 @@ select {
 /* ================= sign-in ================ */
 
 .sign-in {
-    background-color: #e75348;
+    background-color: #f1f1f1;
 }
 
 .sign-in-page {
@@ -2221,40 +2221,40 @@ select {
 }
 
 .signin-popup {
-    width: 600px;
+    width: 500px;
     margin: 0 auto;
     position: relative;
 }
 
-.signin-popup:before {
-    content: '';
-    position: absolute;
-    top: -16px;
-    left: 56px;
-    width: 30px;
-    height: 30px;
-    background-color: #fff;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-    border-radius: 100px;
-}
+/*.signin-popup:before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: -16px;*/
+/*    left: 56px;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    background-color: #ea7c31;*/
+/*    -webkit-border-radius: 100px;*/
+/*    -moz-border-radius: 100px;*/
+/*    -ms-border-radius: 100px;*/
+/*    -o-border-radius: 100px;*/
+/*    border-radius: 100px;*/
+/*}*/
 
-.signin-popup:after {
-    content: '';
-    position: absolute;
-    top: -37px;
-    left: 43px;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-    border-radius: 100px;
-}
+/*.signin-popup:after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: -37px;*/
+/*    left: 43px;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    background-color: #ea7c31;*/
+/*    -webkit-border-radius: 100px;*/
+/*    -moz-border-radius: 100px;*/
+/*    -ms-border-radius: 100px;*/
+/*    -o-border-radius: 100px;*/
+/*    border-radius: 100px;*/
+/*}*/
 
 .signin-pop {
     float: left;
@@ -2310,36 +2310,62 @@ select {
     padding: 30px 0;
     position: relative;
 }
-
-.login-sec:before {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    right: 70px;
-    width: 30px;
-    height: 30px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-    border-radius: 100px;
-    background-color: #fff;
+.login-gtn-group{
+    width: 100%;
+    text-align: center;
+    margin: 0 0 20px 0;
+    background: #ffffffff;
+    padding: 0 60px 0 60px;
 }
-
-.login-sec:after {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    right: 55px;
-    width: 20px;
-    height: 20px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-    border-radius: 100px;
-    background-color: #fff;
+.lo-btn{
+    background: transparent;
+    font-weight: bold;
+    font-size: 22px;
+    color: #ea7c31;
+    border-width: 0 0 2px 0;
+    border-color: #ea7c31;
 }
+.re-btn:hover{
+    background-color: transparent;
+    border-color: #ea7c31;
+    border-width: 0 0 2px 0;
+}
+.re-btn{
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 22px;
+    color: #bcbcbc;
+    border-width: 0 0 0 0;
+}
+/*.login-sec:before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    bottom: -15px;*/
+/*    right: 70px;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    -webkit-border-radius: 100px;*/
+/*    -moz-border-radius: 100px;*/
+/*    -ms-border-radius: 100px;*/
+/*    -o-border-radius: 100px;*/
+/*    border-radius: 100px;*/
+/*    background-color: #ea7c31;*/
+/*}*/
+
+/*.login-sec:after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    bottom: -40px;*/
+/*    right: 55px;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    -webkit-border-radius: 100px;*/
+/*    -moz-border-radius: 100px;*/
+/*    -ms-border-radius: 100px;*/
+/*    -o-border-radius: 100px;*/
+/*    border-radius: 100px;*/
+/*    background-color: #ea7c31;*/
+/*}*/
 
 .sign-control {
     float: left;
@@ -2384,7 +2410,7 @@ select {
 .sign_in_sec {
     float: left;
     width: 100%;
-    padding-right: 75px;
+    padding-right: 60px;
     padding-left: 60px;
     display: none;
 }
@@ -2406,7 +2432,7 @@ select {
     content: '';
     position: absolute;
     bottom: 0;
-    width: 179px;
+    width: 70px;
     height: 2px;
     background-color: #e44d3a;
 }
@@ -2468,7 +2494,7 @@ select {
 .sign_in_sec form input,
 .sign_in_sec form select {
     width: 100%;
-    padding: 0 15px 0 40px;
+    padding: 0 15px 0 15px;
     color: #b2b2b2;
     font-size: 14px;
     border: 1px solid #e5e5e5;
@@ -2482,8 +2508,7 @@ select {
 .sign_in_sec form button {
     color: #ffffff;
     font-size: 16px;
-    background-color: #e44d3a;
-    padding: 12px 27px;
+    background-color: #ea7c31;
     border: 0;
     font-weight: 500;
     margin-top: 30px;
@@ -3884,9 +3909,11 @@ a:hover {
 }
 
 .no-pdd {
-    padding: 0;
+    padding: 0 10px 0 10px;
 }
-
+.input-group{
+    padding-top: 20px;
+}
 .inpt-field.pd-moree input {
     padding-left: 40px !important;
 }
@@ -3903,7 +3930,16 @@ a:hover {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
+.form-control{
+    padding: 0;
+}
+.loginBtn-div{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.loginBtn{
+    width: 100%;
+}
 
 /* ============== companies-info ============== */
 
