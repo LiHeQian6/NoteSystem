@@ -3,9 +3,9 @@ package com.zhifou.user.controller;
 import com.zhifou.entity.User;
 import com.zhifou.user.service.UserService;
 import com.zhifou.util.MailUtil;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import com.zhifou.util.VerifyUtil;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,12 +19,10 @@ import java.util.TimerTask;
 public class UserController {
     @Resource
     private UserService userService;
-
-    @Resource
-    private MailUtil mailUtil;
+    private String verifyCode;
 
     /**
-    * @Description: login
+    * @Description: Regist
     * @Param: 
     * @return: String
     * @Author: 景光赞
@@ -49,8 +47,20 @@ public class UserController {
     public String regist(@RequestParam(name = "account")String account,
                          @RequestParam(name = "password1")String password1,
                          @RequestParam(name = "password2")String password2,
-                         @RequestParam("vertical")String vertical){
-        return "registSuccess";
+                         @RequestParam("vertical")String vertical,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String orignVerify = (String) session.getAttribute("checkCode");
+        if(userService.findUserByAccount(account)==null){
+            if(password1.equals(password2)){
+                if(orignVerify.equals(vertical)){
+                    userService.regist(new User(account,password1));
+                    return "注册成功！";
+                }
+                return "验证码错误或已失效";
+            }
+            return "密码输入不一致";
+        }
+        return "账号已注册！";
     }
 
     /**
@@ -109,18 +119,26 @@ public class UserController {
     * @Date: 2020/4/7
     */
     @ResponseBody
-    @RequestMapping("/list")
-    public String test(){
-        //return userService.findAll().toString();
-//        return userService.findByAccountAndPassword("a","b").toString();
-        if(userService.findUserByAccount("a")!=null){
-            if(userService.findByAccountAndPassword("a","b")!=null){
-                System.out.println(userService.findByAccountAndPassword("a","b"));;
-                return "登录成功！";
-            }
-            return "账号或密码错误！";
+    @RequestMapping("/test")
+    public String test(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        verifyCode = new VerifyUtil().getVerify();
+        session.setAttribute("checkCode",verifyCode);
+        try {
+            new MailUtil().sendVerifyCode("707840960@qq.com",verifyCode);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return "账号不存在，请先注册!";
+        final Timer timer=new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                session.removeAttribute("checkCode");
+                System.out.println("checkCode删除成功");
+                timer.cancel();
+            }
+        },10*1000);
+        return "true";
     }
 
     /**
@@ -147,16 +165,22 @@ public class UserController {
     @ResponseBody
     public String getVerifyCode(@PathVariable String email,HttpServletRequest request){
         HttpSession session = request.getSession();
-        mailUtil.sendVerifyCode(email,"test");
+        verifyCode = new VerifyUtil().getVerify();
+        session.setAttribute("checkCode",verifyCode);
+        try {
+            new MailUtil().sendVerifyCode(email,verifyCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         final Timer timer=new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                session.removeAttribute("verifyCode");
+                session.removeAttribute("checkCode");
                 System.out.println("checkCode删除成功");
                 timer.cancel();
             }
-        },5*60*1000);
+        },10*1000);
         return "true";
     }
 

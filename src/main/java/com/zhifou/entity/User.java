@@ -16,6 +16,14 @@ public class User {
     private Set<User> attentions = new HashSet<User>();
     private Set<User> fans = new HashSet<User>();
 
+    public User() {
+    }
+
+    public User(String account, String password) {
+        this.account = account;
+        this.password = password;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")

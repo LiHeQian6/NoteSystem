@@ -32,4 +32,8 @@ public class UserService {
     public User findById(int id){
         return userRepository.findById(id);
     }
+    @Transactional(readOnly = false)
+    public int regist(User user){
+        return userRepository.save(user).getId();
+    }
 }
