@@ -1,5 +1,10 @@
 package com.zhifou.user.service;
-
+/**
+ * @program: zhifou
+ * @description: userService
+ * @author: 景光赞
+ * @create: 2020-04-07 20:53
+ **/
 import com.zhifou.entity.User;
 import com.zhifou.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -15,6 +20,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public User findByAccountAndPassword(String account, String password){
+        System.out.println(password);
         return userRepository.findByAccountAndPassword(account,password);
     }
     public User findUserByAccount(String account){
