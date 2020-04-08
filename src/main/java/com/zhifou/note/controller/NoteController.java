@@ -16,6 +16,6 @@ public class NoteController {
      **/
     @RequestMapping("/")
     public String toIndex(){
-        return "index";
+        return "login";
     }
 }

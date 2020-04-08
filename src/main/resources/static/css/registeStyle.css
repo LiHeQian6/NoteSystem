@@ -42,4 +42,9 @@
 .btn-get-ver{
     font-size: 14px;
     padding: 9px 9px 9px 9px;
+    color: #ffffff;
+    background-color: #ea7c31;
+    border: 0;
+    font-weight: 500;
+    cursor: pointer;
 }
