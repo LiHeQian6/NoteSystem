@@ -2,8 +2,10 @@ package com.zhifou.user.controller;
 
 import com.zhifou.entity.User;
 import com.zhifou.user.service.UserService;
+import com.zhifou.util.MailUtil;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -14,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
     @Resource
     private UserService userService;
+
+    @Resource
+    private MailUtil mailUtil;
 
     /**
     * @Description: login
@@ -138,9 +143,12 @@ public class UserController {
     @RequestMapping("/getVerifyCode/{email}")
     @ResponseBody
     public String getVerifyCode(@PathVariable String email){
-
+        mailUtil.sendSimpleMail(email,"test","这是一个测试邮件！");
         return "true";
     }
+
+
+
 
     /**
      * @Author li
