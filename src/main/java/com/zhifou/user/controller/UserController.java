@@ -5,7 +5,6 @@ import com.zhifou.user.service.UserService;
 import com.zhifou.util.MailUtil;
 import com.zhifou.util.VerifyUtil;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,15 +18,20 @@ import java.util.TimerTask;
 public class UserController {
     @Resource
     private UserService userService;
-    private String verifyCode;
+
+    @Resource
+    private VerifyUtil verifyUtil;
+
+    @Resource
+    private MailUtil mailUtil;
 
     /**
-    * @Description: Regist
-    * @Param: 
-    * @return: String
-    * @Author: 景光赞
-    * @Date: 2020/4/7
-    */
+     * @Author li
+     * @param
+     * @return java.lang.String
+     * @Description 跳转到注册页
+     * @Date 8:56 2020/4/8
+     **/
     @RequestMapping(value = "/regist",method = RequestMethod.GET)
     public String toRegist(){
         return "regist";
@@ -43,16 +47,17 @@ public class UserController {
      * @Description 注册
      * @Date 9:26 2020/4/8
      **/
+    @ResponseBody
     @RequestMapping(value = "/regist",method = RequestMethod.POST)
     public String regist(@RequestParam(name = "account")String account,
                          @RequestParam(name = "password1")String password1,
                          @RequestParam(name = "password2")String password2,
                          @RequestParam("vertical")String vertical,HttpServletRequest request){
         HttpSession session = request.getSession();
-        String orignVerify = (String) session.getAttribute("checkCode");
+        String orignVerify = (String) session.getAttribute("verifyCode");
         if(userService.findUserByAccount(account)==null){
             if(password1.equals(password2)){
-                if(orignVerify.equals(vertical)){
+                if(vertical.equals(orignVerify)){
                     userService.regist(new User(account,password1));
                     return "注册成功！";
                 }
@@ -74,23 +79,24 @@ public class UserController {
     public String toLogin(){
         return "login";
     }
-
+    
     /**
      * @Author 景光赞
      * @param account
      * @param password
-     * @param model
+     * @param request
      * @return java.lang.String
      * @Description
      * @Date 2020/4/7
      **/
     @ResponseBody
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(@RequestParam(name = "account")String account,
-                        @RequestParam(name = "password")String password, Model model){
+                        @RequestParam(name = "password")String password, HttpServletRequest request){
         if(userService.findUserByAccount(account)!=null){
-            if(userService.findByAccountAndPassword(account,password)!=null){
-                model.addAttribute("user",userService.findByAccountAndPassword(account,password));
+            User user = userService.findByAccountAndPassword(account, password);
+            if(user !=null){
+                request.getSession().setAttribute("user", user);
                 return "登录成功！";
             }
             return "账号或密码错误！";
@@ -110,35 +116,6 @@ public class UserController {
         //return userService.findAll().toString();
         return userService.findByAccountAndPassword("a","b").toString()+"--"
                 +userService.findById(1);
-    }
-    /**
-    * @Description: Test:测试方法、接口
-    * @Param:
-    * @return:
-    * @Author: 景光赞
-    * @Date: 2020/4/7
-    */
-    @ResponseBody
-    @RequestMapping("/test")
-    public String test(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        verifyCode = new VerifyUtil().getVerify();
-        session.setAttribute("checkCode",verifyCode);
-        try {
-            new MailUtil().sendVerifyCode("707840960@qq.com",verifyCode);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        final Timer timer=new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                session.removeAttribute("checkCode");
-                System.out.println("checkCode删除成功");
-                timer.cancel();
-            }
-        },10*1000);
-        return "true";
     }
 
     /**
@@ -165,22 +142,17 @@ public class UserController {
     @ResponseBody
     public String getVerifyCode(@PathVariable String email,HttpServletRequest request){
         HttpSession session = request.getSession();
-        verifyCode = new VerifyUtil().getVerify();
-        session.setAttribute("checkCode",verifyCode);
-        try {
-            new MailUtil().sendVerifyCode(email,verifyCode);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String verifyCode = verifyUtil.getVerify();
+        session.setAttribute("verifyCode",verifyCode);
+        mailUtil.sendVerifyCode(email,verifyCode);
         final Timer timer=new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                session.removeAttribute("checkCode");
-                System.out.println("checkCode删除成功");
+                session.removeAttribute("verifyCode");
                 timer.cancel();
             }
-        },10*1000);
+        },3*60*1000);
         return "true";
     }
 
@@ -215,10 +187,12 @@ public class UserController {
      * @Description 修改密码
      * @Date 10:55 2020/4/8
      **/
+    @ResponseBody
     @RequestMapping(value = "/changePassword",method = RequestMethod.POST)
     public String changePassword(@RequestParam("email")String email,
                                  @RequestParam("password1")String password1,
                                  @RequestParam("password2")String password2){
+
         return "true";
     }
 

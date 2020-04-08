@@ -5,5 +5,3 @@ spring:
     active: dev
   mvc:
     static-path-pattern: /static/**
-  mail:
-    username: 2068320496@qq.com

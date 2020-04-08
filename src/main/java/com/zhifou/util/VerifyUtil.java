@@ -1,5 +1,7 @@
 package com.zhifou.util;
 
+import org.springframework.stereotype.Component;
+
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -9,6 +11,7 @@ import java.util.Random;
  * @author: 景光赞
  * @create: 2020-04-08 17:02
  **/
+@Component
 public class VerifyUtil {
     //邮箱字符串提取，去除了容易混淆的几个字符比如0,o~
     private final String SYMBOLS = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";

@@ -1,18 +1,30 @@
-server:
-  servlet:
-    context-path: /
-  port: 8080
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/note?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/note?useUnicode=true&characterEncoding=utf-8
     username: root
-    password:
+    password: '040011'
   jpa:
-    database: MySQL
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      #     若由实体Bean自动创建表，则ddl-auto设置为always，如果由脚本创建表，则设置为none
       ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
-    open-in-view: true
+    database: MySQL
+  mail:
+    host: smtp.163.com
+    username: li05012@163.com
+    password: QMBAHBTFWNLKUMMD
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+logging:
+  level:
+    root: info
+    com.li.project.blog: debug
+  file:
+    name: log/blog-dev.log
