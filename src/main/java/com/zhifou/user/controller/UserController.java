@@ -1,6 +1,6 @@
-package com.example.zhifou.user.controller;
+package com.zhifou.user.controller;
 
-import com.example.zhifou.user.service.UserService;
+import com.zhifou.user.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +49,7 @@ public class UserController {
     * @Date: 2020/4/7
     */
     @ResponseBody
-    @RequestMapping("list")
+    @RequestMapping("/list")
     public String findAllUser(){
         //return userService.findAll().toString();
         return userService.findByAccountAndPassword("a","b").toString()+"--"

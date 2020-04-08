@@ -1,8 +1,7 @@
-package com.example.zhifou.user.advice;
+package com.zhifou.user.advice;
 
-import com.example.zhifou.util.Md5Encode;
+import com.zhifou.util.Md5Encode;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.stereotype.Component;
 

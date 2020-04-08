@@ -1,4 +1,4 @@
-package com.example.zhifou.util;
+package com.zhifou.util;
 
 public class Md5Encode {
 	public static String getMD5(byte[] source) {

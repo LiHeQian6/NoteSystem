@@ -1,8 +1,7 @@
-package com.example.zhifou.user.service;
+package com.zhifou.user.service;
 
-import com.example.zhifou.entity.User;
-import com.example.zhifou.user.dao.UserRepository;
-import org.aspectj.lang.annotation.Before;
+import com.zhifou.entity.User;
+import com.zhifou.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +14,7 @@ public class UserService {
     @Resource
     private UserRepository userRepository;
 
-    public User findByAccountAndPassword(String account,String password){
+    public User findByAccountAndPassword(String account, String password){
         return userRepository.findByAccountAndPassword(account,password);
     }
     public User findUserByAccount(String account){

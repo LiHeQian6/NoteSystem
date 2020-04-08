@@ -1,4 +1,4 @@
-package com.example.zhifou.entity;
+package com.zhifou.entity;
 
 import javax.persistence.*;
 import java.util.HashSet;

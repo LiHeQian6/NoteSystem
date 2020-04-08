@@ -1,9 +1,8 @@
-package com.example.zhifou.user.dao;
+package com.zhifou.user.repository;
 
-import com.example.zhifou.entity.User;
+import com.zhifou.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.io.Serializable;
