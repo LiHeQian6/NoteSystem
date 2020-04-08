@@ -2514,13 +2514,13 @@ select {
     height: 40px;
 }
 
-.sign_in_sec form button {
-    color: #ffffff;
-    background-color: #ea7c31;
-    border: 0;
-    font-weight: 500;
-    cursor: pointer;
-}
+/*.sign_in_sec form button {*/
+/*    color: #ffffff;*/
+/*    background-color: #ea7c31;*/
+/*    border: 0;*/
+/*    font-weight: 500;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .checky-sec {
     float: left;
@@ -3940,6 +3940,19 @@ a:hover {
 .form-control{
     padding: 0;
 }
+.btn-forg-div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btn-forg{
+    background: transparent;
+    border-width: 0;
+    cursor: pointer;
+    color: #949494;
+}
+.btn-forg:focus{
+    outline: none;
+}
 .loginBtn-div{
     padding-top: 10px;
     padding-left: 70px;
@@ -3947,6 +3960,11 @@ a:hover {
 }
 .loginBtn{
     width: 100%;
+    color: #ffffff;
+    background-color: #ea7c31;
+    border: 0;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 /* ============== companies-info ============== */
