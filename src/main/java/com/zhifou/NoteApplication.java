@@ -1,4 +1,4 @@
-package com.li.project.note;
+package com.zhifou;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

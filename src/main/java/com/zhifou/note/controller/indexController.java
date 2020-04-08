@@ -1,4 +1,4 @@
-package com.li.project.note.controller;
+package com.zhifou.note.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class indexController {
 
-    @RequestMapping("/regist")
+    @RequestMapping("regist")
     public String index(){
         return "regist";
     }

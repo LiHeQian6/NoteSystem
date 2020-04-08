@@ -1,4 +1,4 @@
-package com.li.project.note.handler;
+package com.zhifou.note.handler;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
