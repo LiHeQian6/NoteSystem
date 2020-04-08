@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Controller
 @RequestMapping("/user")
@@ -142,13 +145,20 @@ public class UserController {
      **/
     @RequestMapping("/getVerifyCode/{email}")
     @ResponseBody
-    public String getVerifyCode(@PathVariable String email){
-        mailUtil.sendSimpleMail(email,"test","这是一个测试邮件！");
+    public String getVerifyCode(@PathVariable String email,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        mailUtil.sendVerifyCode(email,"test");
+        final Timer timer=new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                session.removeAttribute("verifyCode");
+                System.out.println("checkCode删除成功");
+                timer.cancel();
+            }
+        },5*60*1000);
         return "true";
     }
-
-
-
 
     /**
      * @Author li
