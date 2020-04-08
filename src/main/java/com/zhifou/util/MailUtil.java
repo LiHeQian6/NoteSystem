@@ -18,11 +18,11 @@ public class MailUtil {
     @Resource
     private JavaMailSender mailSender;
 
-    public void sendSimpleMail(String to, String subject, String content){
+    public void sendVerifyCode(String email,String verifyCode){
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(content);
+        message.setTo(email);
+        message.setSubject("知否笔记");
+        message.setText("您的验证码是"+verifyCode+",有效期3分钟！");
         message.setFrom(from);
         mailSender.send(message);
     }
