@@ -125,20 +125,11 @@ public class UserController {
     */
     @ResponseBody
     @RequestMapping("/test")
-    public String test(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        String orignVerify = (String) session.getAttribute("verifyCode");
-        if(userService.findUserByAccount("d")==null){
-            if("1".equals("1")){
-                if("UN6P".equals("UN6P")){
-                    userService.regist(new User("d","c"));
-                    return "注册成功！";
-                }
-                return "验证码错误或已失效";
-            }
-            return "密码输入不一致";
-        }
-        return "账号已注册！";
+    public User test(HttpServletRequest request){
+        User user = userService.findById(1);
+        user.getAttentions().remove(userService.findById(4));
+        userService.updateUser(user);
+        return user;
     }
     /**
     * @Description: 关注某人
@@ -146,7 +137,32 @@ public class UserController {
     * @return: 
     * @Author: 景光赞
     * @Date: 2020/4/9
-    */ 
+    */
+    @ResponseBody
+    @RequestMapping("/attention")
+    public String attention(@RequestParam(name = "userId")int userId,
+                            @RequestParam(name = "attentionId")int attentionId){
+        User user = userService.findById(userId);
+        user.getAttentions().add(userService.findById(attentionId));
+        userService.updateUser(user);
+        return "true";
+    }
+    /**
+     * @Description: 取关某人
+     * @Param:
+     * @return:
+     * @Author: 景光赞
+     * @Date: 2020/4/9
+     */
+    @ResponseBody
+    @RequestMapping("/getOff")
+    public String getOff(@RequestParam(name = "userId")int userId,
+                            @RequestParam(name = "attentionId")int attentionId){
+        User user = userService.findById(userId);
+        user.getAttentions().remove(userService.findById(attentionId));
+        userService.updateUser(user);
+        return "true";
+    }
 
     /**
      * @Author li

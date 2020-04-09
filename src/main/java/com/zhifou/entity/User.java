@@ -14,7 +14,6 @@ public class User {
     private String photo;
     private String introduction;
     private Set<User> attentions = new HashSet<User>();
-    private Set<User> fans = new HashSet<User>();
 
     public User() {
     }
@@ -78,17 +77,6 @@ public class User {
         this.attentions = attentions;
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_fans", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "fans_id"))
-    public Set<User> getFans() {
-        return fans;
-    }
-
-    public void setFans(Set<User> fans) {
-        this.fans = fans;
-    }
-
     public String getIntroduction() {
         return introduction;
     }
@@ -106,7 +94,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", photo='" + photo + '\'' +
                 ", attentions=" + attentions +
-                ", fans=" + fans +
                 '}';
     }
 }

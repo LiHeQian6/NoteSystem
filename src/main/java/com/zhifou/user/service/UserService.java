@@ -36,4 +36,8 @@ public class UserService {
     public int regist(User user){
         return userRepository.save(user).getId();
     }
+    @Transactional(readOnly = false)
+    public int updateUser(User user){
+        return userRepository.saveAndFlush(user).getId();
+    }
 }
