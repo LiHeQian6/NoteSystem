@@ -1,5 +1,6 @@
 package com.zhifou.user.advice;
 
+import com.zhifou.entity.User;
 import com.zhifou.util.Md5Encode;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -22,7 +23,7 @@ public class MyAdvice{
     * @Date: 2020/4/8
     */
     @Around("execution(* com.zhifou.user.service.UserService.findByAccountAndPassword(..))")
-    public Object around(ProceedingJoinPoint joinPoint) throws ParseException {
+    public Object loginEncode(ProceedingJoinPoint joinPoint) throws ParseException {
 
         System.out.println("*****环绕通知*****");
 
@@ -31,6 +32,32 @@ public class MyAdvice{
         System.out.println(args[1]);
         args[1] = Md5Encode.getMD5(args[1].toString().getBytes());
         System.out.println(args[1]);
+        try {
+            result = joinPoint.proceed(args);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        System.out.println("*****环绕通知*****");
+        return result;
+    }
+    /**
+     * @Description: 注册加密
+     * @Param: 环绕通知
+     * @return:
+     * @Author: 景光赞
+     * @Date: 2020/4/8
+     */
+    @Around("execution(* com.zhifou.user.service.UserService.regist(..))")
+    public Object registEncode(ProceedingJoinPoint joinPoint) throws ParseException {
+
+        System.out.println("*****环绕通知*****");
+        Object[] args = joinPoint.getArgs();
+        User u = (User) args[0];
+        Object result = null;
+        System.out.println(u.getPassword());
+        u.setPassword(Md5Encode.getMD5(u.getPassword().getBytes()));
+        System.out.println(u.getPassword());
+        args[0] = u;
         try {
             result = joinPoint.proceed(args);
         } catch (Throwable throwable) {

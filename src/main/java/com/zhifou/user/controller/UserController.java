@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -114,10 +115,55 @@ public class UserController {
      **/
     @ResponseBody
     @RequestMapping("/list")
-    public String findAllUser(){
-        //return userService.findAll().toString();
-        return userService.findUserByAccountAndPassword("a","b").toString()+"--"
-                +userService.findUserById(1);
+    public List<User> findAllUser(){
+        return userService.findAll();
+    }
+    /**
+    * @Description: 测试接口
+    * @Param:
+    * @return:
+    * @Author: 景光赞
+    * @Date: 2020/4/9
+    */
+    @ResponseBody
+    @RequestMapping("/test")
+    public User test(HttpServletRequest request){
+        User user = userService.findUserById(1);
+        user.getAttentions().remove(userService.findUserById(4));
+        userService.updateUser(user);
+        return user;
+    }
+    /**
+    * @Description: 关注某人
+    * @Param:
+    * @return:
+    * @Author: 景光赞
+    * @Date: 2020/4/9
+    */
+    @ResponseBody
+    @RequestMapping("/attention")
+    public String attention(@RequestParam(name = "userId")int userId,
+                            @RequestParam(name = "attentionId")int attentionId){
+        User user = userService.findUserById(userId);
+        user.getAttentions().add(userService.findUserById(attentionId));
+        userService.updateUser(user);
+        return "true";
+    }
+    /**
+     * @Description: 取关某人
+     * @Param:
+     * @return:
+     * @Author: 景光赞
+     * @Date: 2020/4/9
+     */
+    @ResponseBody
+    @RequestMapping("/getOff")
+    public String getOff(@RequestParam(name = "userId")int userId,
+                            @RequestParam(name = "attentionId")int attentionId){
+        User user = userService.findUserById(userId);
+        user.getAttentions().remove(userService.findUserById(attentionId));
+        userService.updateUser(user);
+        return "true";
     }
 
     /**

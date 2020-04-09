@@ -51,4 +51,8 @@ public class UserService {
         }
         return true;
     }
+    @Transactional(readOnly = false)
+    public int updateUser(User user){
+        return userRepository.saveAndFlush(user).getId();
+    }
 }
