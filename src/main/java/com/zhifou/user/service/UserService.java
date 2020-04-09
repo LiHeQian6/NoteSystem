@@ -19,21 +19,36 @@ public class UserService {
     @Resource
     private UserRepository userRepository;
 
-    public User findByAccountAndPassword(String account, String password){
-        System.out.println(password);
-        return userRepository.findByAccountAndPassword(account,password);
+    public User findUserByAccountAndPassword(String account, String password){
+        return userRepository.findUserByAccountAndPassword(account,password);
     }
+
     public User findUserByAccount(String account){
         return userRepository.findUserByAccount(account);
     }
+
     public List<User> findAll(){
         return userRepository.findAll();
     }
-    public User findById(int id){
-        return userRepository.findById(id);
+
+    public User findUserById(int id){
+        return userRepository.findUserById(id);
     }
-    @Transactional(readOnly = false)
+
+    @Transactional
     public int regist(User user){
         return userRepository.save(user).getId();
+    }
+
+    @Transactional
+    public boolean changePassword(String email, String password) {
+        try {
+            User user = userRepository.findUserByAccount(email);
+            user.setPassword(password);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

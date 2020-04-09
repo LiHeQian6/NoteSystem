@@ -55,17 +55,19 @@ public class UserController {
                          @RequestParam("vertical")String vertical,HttpServletRequest request){
         HttpSession session = request.getSession();
         String orignVerify = (String) session.getAttribute("verifyCode");
+        String email = (String) session.getAttribute("email");
         if(userService.findUserByAccount(account)==null){
             if(password1.equals(password2)){
-                if(vertical.equals(orignVerify)){
-                    userService.regist(new User(account,password1));
-                    return "注册成功！";
+                if(vertical.equals(orignVerify)&&account.equals(email)){
+                    if (userService.regist(new User(account,password1))!=0)
+                        return "注册成功！";
+                    return "注册失败";
                 }
                 return "验证码错误或已失效";
             }
             return "密码输入不一致";
         }
-        return "账号已注册！";
+        return "邮箱已注册！";
     }
 
     /**
@@ -94,7 +96,7 @@ public class UserController {
     public String login(@RequestParam(name = "account")String account,
                         @RequestParam(name = "password")String password, HttpServletRequest request){
         if(userService.findUserByAccount(account)!=null){
-            User user = userService.findByAccountAndPassword(account, password);
+            User user = userService.findUserByAccountAndPassword(account, password);
             if(user !=null){
                 request.getSession().setAttribute("user", user);
                 return "登录成功！";
@@ -114,8 +116,8 @@ public class UserController {
     @RequestMapping("/list")
     public String findAllUser(){
         //return userService.findAll().toString();
-        return userService.findByAccountAndPassword("a","b").toString()+"--"
-                +userService.findById(1);
+        return userService.findUserByAccountAndPassword("a","b").toString()+"--"
+                +userService.findUserById(1);
     }
 
     /**
@@ -143,13 +145,15 @@ public class UserController {
     public String getVerifyCode(@PathVariable String email,HttpServletRequest request){
         HttpSession session = request.getSession();
         String verifyCode = verifyUtil.getVerify();
-        session.setAttribute("verifyCode",verifyCode);
+        session.setAttribute("verifyCode",verifyCode);//session 里存上发送验证码的email 验证验证码的时候验证邮箱是否统一
+        session.setAttribute("email",email);
         mailUtil.sendVerifyCode(email,verifyCode);
         final Timer timer=new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 session.removeAttribute("verifyCode");
+                session.removeAttribute("email");
                 timer.cancel();
             }
         },3*60*1000);
@@ -167,20 +171,46 @@ public class UserController {
     public String toForgetPassword(){
         return "forget_password";
     }
+
     /**
      * @Author li
-     * @param
+     * @param account
+     * @param verifyCode
+     * @param request
+     * @return java.lang.String
+     * @Description 验证邮箱
+     * @Date 11:04 2020/4/9
+     **/
+    @ResponseBody
+    @RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
+    public String forgetPassword(@RequestParam("account")String account,@RequestParam("vertical")String verifyCode,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String code = (String) session.getAttribute("verifyCode");
+        String email = (String) session.getAttribute("email");
+        if (verifyCode.equals(code)&&account.equals(email)){
+            request.setAttribute("changeEmail",account);
+            return "user/changePassword";
+        }
+        return "验证码错误";
+    }
+
+    /**
+     * @Author li
      * @return java.lang.String
      * @Description 跳转到修改密码页
-     * @Date 10:54 2020/4/8
+     * @Date 10:55 2020/4/8
      **/
     @RequestMapping(value = "/changePassword",method = RequestMethod.GET)
-    public String toChangePassword(){
-        return "change_password";
+    public String toChangePassword(HttpServletRequest request){
+        String changeEmail = (String) request.getAttribute("changeEmail");//  ****存在些许问题****
+        if (changeEmail!=null) {
+            return "change_password";
+        }
+        return "forget_password";
     }
+
     /**
      * @Author li
-     * @param email
      * @param password1
      * @param password2
      * @return java.lang.String
@@ -189,11 +219,17 @@ public class UserController {
      **/
     @ResponseBody
     @RequestMapping(value = "/changePassword",method = RequestMethod.POST)
-    public String changePassword(@RequestParam("email")String email,
-                                 @RequestParam("password1")String password1,
-                                 @RequestParam("password2")String password2){
-
-        return "true";
+    public String changePassword(@RequestParam("password1")String password1,
+                                 @RequestParam("password2")String password2,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String email = (String) session.getAttribute("changeEmail");
+        if (password1.equals(password2)){
+            if (userService.changePassword(email,password1)) {
+                return "修改成功";
+            }
+            return "修改失败";
+        }
+        return "两次输入密码不一致";
     }
 
 }
