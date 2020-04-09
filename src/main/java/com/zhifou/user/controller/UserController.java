@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -112,11 +113,40 @@ public class UserController {
      **/
     @ResponseBody
     @RequestMapping("/list")
-    public String findAllUser(){
-        //return userService.findAll().toString();
-        return userService.findByAccountAndPassword("a","b").toString()+"--"
-                +userService.findById(1);
+    public List<User> findAllUser(){
+        return userService.findAll();
     }
+    /**
+    * @Description: 测试接口
+    * @Param:
+    * @return:
+    * @Author: 景光赞
+    * @Date: 2020/4/9
+    */
+    @ResponseBody
+    @RequestMapping("/test")
+    public String test(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String orignVerify = (String) session.getAttribute("verifyCode");
+        if(userService.findUserByAccount("d")==null){
+            if("1".equals("1")){
+                if("UN6P".equals("UN6P")){
+                    userService.regist(new User("d","c"));
+                    return "注册成功！";
+                }
+                return "验证码错误或已失效";
+            }
+            return "密码输入不一致";
+        }
+        return "账号已注册！";
+    }
+    /**
+    * @Description: 关注某人
+    * @Param: 
+    * @return: 
+    * @Author: 景光赞
+    * @Date: 2020/4/9
+    */ 
 
     /**
      * @Author li

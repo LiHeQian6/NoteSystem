@@ -25,4 +25,5 @@ public interface UserRepository extends JpaRepository<User,Integer>, JpaSpecific
 
     @Override
     <S extends User> S save(S s);
+
 }
