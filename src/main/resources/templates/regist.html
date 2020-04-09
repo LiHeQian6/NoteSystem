@@ -23,7 +23,7 @@
             var againpassword = $("#password2").val();
             var vertical = $("#vertical").val();
             $.post("/user/regist",{"account":account,"password1":password,"password2":againpassword,"vertical":vertical},function (data) {
-                if(data = "注册成功!") {
+                if(data == "注册成功!") {
                     alert(data);
                     window.location.href="/user/login";
                 }else{

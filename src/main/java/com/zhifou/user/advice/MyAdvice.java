@@ -22,7 +22,7 @@ public class MyAdvice{
     * @Author: 景光赞
     * @Date: 2020/4/8
     */
-    @Around("execution(* com.zhifou.user.service.UserService.findByAccountAndPassword(..))")
+    @Around("execution(* com.zhifou.user.service.UserService.findUserByAccountAndPassword(..))")
     public Object loginEncode(ProceedingJoinPoint joinPoint) throws ParseException {
 
         System.out.println("*****环绕通知*****");
@@ -58,6 +58,32 @@ public class MyAdvice{
         u.setPassword(Md5Encode.getMD5(u.getPassword().getBytes()));
         System.out.println(u.getPassword());
         args[0] = u;
+        try {
+            result = joinPoint.proceed(args);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        System.out.println("*****环绕通知*****");
+        return result;
+    }
+    /**
+     * @Author li
+     * @param joinPoint
+     * @return java.lang.Object
+     * @Description 修改密码加密
+     * @Date 22:04 2020/4/9
+     **/
+    @Around("execution(* com.zhifou.user.service.UserService.changePassword(..))")
+    public Object changePasswordEncode(ProceedingJoinPoint joinPoint) throws ParseException {
+
+        System.out.println("*****环绕通知*****");
+        Object[] args = joinPoint.getArgs();
+        String p = (String) args[1];
+        Object result = null;
+        System.out.println(p);
+        p=Md5Encode.getMD5(p.getBytes());
+        System.out.println(p);
+        args[1] = p;
         try {
             result = joinPoint.proceed(args);
         } catch (Throwable throwable) {

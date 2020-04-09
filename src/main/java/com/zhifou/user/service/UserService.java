@@ -40,6 +40,14 @@ public class UserService {
         return userRepository.save(user).getId();
     }
 
+    /**
+     * @Author li
+     * @param email
+     * @param password
+     * @return boolean
+     * @Description 修改密码
+     * @Date 21:14 2020/4/9
+     **/
     @Transactional
     public boolean changePassword(String email, String password) {
         try {
