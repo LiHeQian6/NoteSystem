@@ -25,7 +25,10 @@
 
         </rollingPolicy>
     </appender>
-
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="TIME_FILE" />
