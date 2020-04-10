@@ -1,6 +1,7 @@
 package com.zhifou.user.controller;
 
 import com.zhifou.entity.User;
+import com.zhifou.note.service.NoteService;
 import com.zhifou.user.service.UserService;
 import com.zhifou.util.MailUtil;
 import com.zhifou.util.VerifyUtil;
@@ -19,7 +20,8 @@ import java.util.TimerTask;
 public class UserController {
     @Resource
     private UserService userService;
-
+    @Resource
+    private NoteService noteService;
     @Resource
     private VerifyUtil verifyUtil;
 
@@ -165,6 +167,59 @@ public class UserController {
         userService.updateUser(user);
         return "true";
     }
+    /**
+     * @Description: 收藏笔记
+     * @Param:
+     * @return:
+     * @Author: 景光赞
+     * @Date: 2020/4/9
+     */
+    @ResponseBody
+    @RequestMapping("/collect")
+    public String collectNote(@RequestParam(name = "userId")int userId,
+                         @RequestParam(name = "noteId")int noteId){
+        User user = userService.findUserById(userId);
+        user.getNotes().add(noteService.findNoteById(noteId));
+        userService.updateUser(user);
+        return "true";
+    }
+    /**
+     * @Description: 取消收藏笔记
+     * @Param:
+     * @return:
+     * @Author: 景光赞
+     * @Date: 2020/4/9
+     */
+    @ResponseBody
+    @RequestMapping("/notCollect")
+    public String removeNote(@RequestParam(name = "userId")int userId,
+                              @RequestParam(name = "noteId")int noteId){
+        User user = userService.findUserById(userId);
+        user.getNotes().remove(noteService.findNoteById(noteId));
+        userService.updateUser(user);
+        return "true";
+    }
+    /**
+     * @Description: 修改用户信息
+     * @Param:      NickName,Photo,Introduction
+     * @return:
+     * @Author: 景光赞
+     * @Date: 2020/4/9
+     */
+    @ResponseBody
+    @RequestMapping("/updateUser")
+    public String updateUser(@RequestParam(name = "userId")int userId,
+                             @RequestParam(name = "nickName")String nickName,
+                             @RequestParam(name = "photo")String photo,
+                             @RequestParam(name = "introduction")String introduction){
+        User user = userService.findUserById(userId);
+        user.setNickName(nickName);
+        user.setPhoto(photo);
+        user.setIntroduction(introduction);
+        userService.updateUser(user);
+        return "true";
+    }
+
 
     /**
      * @Author li

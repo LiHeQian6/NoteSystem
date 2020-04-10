@@ -14,6 +14,7 @@ public class User {
     private String photo;
     private String introduction;
     private Set<User> attentions = new HashSet<User>();
+    private Set<Note> notes = new HashSet<Note>();
 
     public User() {
     }
@@ -83,6 +84,17 @@ public class User {
 
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "user_notes", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "note_id"))
+    public Set<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Set<Note> notes) {
+        this.notes = notes;
     }
 
     @Override
