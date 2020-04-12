@@ -15,6 +15,37 @@
     <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
+
+    <script type="text/javascript">
+        function login() {
+            var account = $("#account").val()
+            var password = $("#password").val()
+            if(account == "" || password == ""){
+                document.getElementById("error-pass-text").innerText = "请输入信息"
+                document.getElementById("error-pass").className = "visible";
+                return;
+            }
+            if(password.length >= 6) {
+                $.post("/user/login", {"account": account, "password": password}, function (data) {
+                    if (data == "登陆成功") {
+
+                    } else if (data == "账号或密码错误！") {
+                        document.getElementById("error-pass-text").innerText = data
+                        document.getElementById("error-pass").className = "visible"
+                        document.getElementById("no-account").className = "invisible";
+                    } else {
+                        document.getElementById("no-acc-text").innerText = data
+                        document.getElementById("error-pass").className = "invisible"
+                        document.getElementById("no-account").className = "visible";
+                    }
+                });
+            }else{
+                document.getElementById("error-pass-text").innerText = "密码最低为6位"
+                document.getElementById("error-pass").className = "visible"
+                document.getElementById("no-account").className = "invisible"
+            }
+        };
+    </script>
 </head>
 
 
@@ -45,7 +76,10 @@
                                                       </svg>
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" name="account" placeholder="邮 箱">
+                                                <input type="text" class="form-control" id="account" name="account" placeholder="邮 箱">
+                                            </div>
+                                            <div class="invisible" id="no-account">
+                                                <h6 style="color: #aa1111 !important" id="no-acc-text">账号不存在,请注册</h6>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
@@ -58,7 +92,10 @@
                                                   </svg>
                                                 </span>
                                                 </div>
-                                                <input type="password" class="form-control" name="password" placeholder="密 码">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="密 码">
+                                            </div>
+                                            <div class="invisible" id="error-pass">
+                                                <h6 style="color: #aa1111 !important" id="error-pass-text">账号或密码错误</h6>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
@@ -68,7 +105,7 @@
                                         </div>
                                         <div class="col-lg-12 no-pdd">
                                             <div class="loginBtn-div">
-                                                <button type="button" class="btn btn-primary loginBtn" value="submit">登 录</button>
+                                                <button type="button" class="btn btn-primary loginBtn" value="submit" onclick="login()">登 录</button>
                                             </div>
                                         </div>
                                     </div>

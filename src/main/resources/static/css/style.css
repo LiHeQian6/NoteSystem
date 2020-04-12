@@ -3916,10 +3916,10 @@ a:hover {
 }
 
 .no-pdd {
-    padding: 0 10px 0 10px;
+    padding: 0 10px 0 0px;
 }
 .input-group{
-    padding-top: 20px;
+    padding-top: 10px;
 }
 .inpt-field.pd-moree input {
     padding-left: 40px !important;
