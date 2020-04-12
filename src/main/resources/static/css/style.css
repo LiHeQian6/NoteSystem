@@ -2315,7 +2315,6 @@ select {
     text-align: center;
     margin: 0 0 20px 0;
     background: #ffffffff;
-    padding: 0 60px 0 60px;
 }
 .lo-btn{
     background: transparent;
@@ -3916,10 +3915,10 @@ a:hover {
 }
 
 .no-pdd {
-    padding: 0 10px 0 0px;
+    padding: 0;
 }
 .input-group{
-    padding-top: 10px;
+    padding: 0;
 }
 .inpt-field.pd-moree input {
     padding-left: 40px !important;
@@ -3941,7 +3940,6 @@ a:hover {
     padding: 0;
 }
 .btn-forg-div{
-    padding-top: 10px;
     padding-bottom: 10px;
 }
 .btn-forg{
@@ -3952,6 +3950,11 @@ a:hover {
 }
 .btn-forg:focus{
     outline: none;
+}
+.error-tip{
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 .loginBtn-div{
     padding-top: 10px;
