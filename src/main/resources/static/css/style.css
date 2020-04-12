@@ -2426,6 +2426,7 @@ select {
 
 .sign_in_sec.current {
     display: block;
+    text-align: center;
 }
 
 .sign_in_sec h3 {
@@ -2505,7 +2506,6 @@ select {
     padding: 0 15px 0 15px;
     color: #b2b2b2;
     font-size: 14px;
-    border: 1px solid #e5e5e5;
 }
 
 .sign_in_sec form select {
@@ -3916,6 +3916,9 @@ a:hover {
 
 .no-pdd {
     padding: 0;
+}
+.regist-pdd{
+    padding: 10px 0 0 0;
 }
 .input-group{
     padding: 0;

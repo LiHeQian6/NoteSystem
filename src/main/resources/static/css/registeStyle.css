@@ -29,17 +29,18 @@
     border-color: #ea7c31;
 }
 .in-ver-div{
-    padding-top: 10px;
     width: 100%;
 }
 .in-ver{
     padding-right: 30px;
 }
 .btn-div-ver{
+    width: 100%;
     min-height: 100%;
     padding: 0;
 }
 .btn-get-ver{
+    width: 100%;
     font-size: 14px;
     padding: 9px 9px 9px 9px;
     color: #ffffff;
