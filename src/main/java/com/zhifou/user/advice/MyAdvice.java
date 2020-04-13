@@ -29,9 +29,7 @@ public class MyAdvice{
 
         Object[] args = joinPoint.getArgs();
         Object result = null;
-        System.out.println(args[1]);
         args[1] = Md5Encode.getMD5(args[1].toString().getBytes());
-        System.out.println(args[1]);
         try {
             result = joinPoint.proceed(args);
         } catch (Throwable throwable) {
@@ -54,9 +52,7 @@ public class MyAdvice{
         Object[] args = joinPoint.getArgs();
         User u = (User) args[0];
         Object result = null;
-        System.out.println(u.getPassword());
         u.setPassword(Md5Encode.getMD5(u.getPassword().getBytes()));
-        System.out.println(u.getPassword());
         args[0] = u;
         try {
             result = joinPoint.proceed(args);
@@ -80,9 +76,7 @@ public class MyAdvice{
         Object[] args = joinPoint.getArgs();
         String p = (String) args[1];
         Object result = null;
-        System.out.println(p);
         p=Md5Encode.getMD5(p.getBytes());
-        System.out.println(p);
         args[1] = p;
         try {
             result = joinPoint.proceed(args);
