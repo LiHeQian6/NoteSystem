@@ -22,7 +22,6 @@
             var password = $("#password").val()
             if(account == "" || password == ""){
                 document.getElementById("error-pass-text").innerText = "请输入信息"
-                document.getElementById("error-pass").className = "col-lg-7 visible error-tip";
                 return;
             }
             if(password.length >= 6) {
@@ -31,18 +30,12 @@
 
                     } else if (data == "账号或密码错误！") {
                         document.getElementById("error-pass-text").innerText = data
-                        document.getElementById("error-pass").className = "col-lg-7 visible error-tip"
-                        document.getElementById("no-account").className = "invisible";
                     } else {
                         document.getElementById("no-acc-text").innerText = data
-                        document.getElementById("error-pass").className = "col-lg-7 invisible error-tip"
-                        document.getElementById("no-account").className = "visible";
                     }
                 });
             }else{
                 document.getElementById("error-pass-text").innerText = "密码最低为6位"
-                document.getElementById("error-pass").className = "col-lg-7 visible error-tip"
-                document.getElementById("no-account").className = "invisible"
             }
         };
     </script>
@@ -78,8 +71,8 @@
                                                 </div>
                                                 <input type="text" class="form-control" id="account" name="account" placeholder="邮 箱">
                                             </div>
-                                            <div class="invisible error-tip" id="no-account">
-                                                <h6 class="text-danger" id="no-acc-text">账号不存在,请注册</h6>
+                                            <div class="col-lg-12 visible error-tip" id="no-account">
+                                                <h6 class="text-danger" id="no-acc-text">&nbsp</h6>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
@@ -96,8 +89,8 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 d-flex no-pdd flex-row">
-                                            <div class="col-lg-7 invisible error-tip" id="error-pass">
-                                                <h6 class="text-danger" id="error-pass-text">账号或密码错误</h6>
+                                            <div class="col-lg-7 visible error-tip" id="error-pass">
+                                                <h6 class="text-danger" id="error-pass-text">&nbsp</h6>
                                             </div>
                                             <div class="col-lg-6 btn-forg-div pull-right">
                                                 <button class="btn-forg" type="button" value="submit" onclick="window.location.href='/user/forgetPassword'">忘记密码？</button>
