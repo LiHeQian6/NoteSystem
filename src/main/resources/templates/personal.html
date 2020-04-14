@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/editor/css/editormd.css">
+
+    <!-- 链接 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+
+    <style type="text/css">
+        /*.row [class*="col-"]{
+            margin-bottom: -99999px;
+            padding-bottom: 99999px;
+        }
+        .row{
+            overflow: hidden; 
+        }*/
+    </style> 
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <header>
+        <div class="container">
+            <div class="header-data">
+                <div class="forum-bar">
+                    <a style="display: inline-block" href="index.html" title="">
+                        <img src="../static/images/cloud.png" alt="">
+                    </a>
+                </div>
+                <div class="user-account">
+                    <div class="user-info">
+                        <img src="../static/images/resources/user.png" alt="">
+                        <a href="#" title="">John</a>
+                        <i class="la la-sort-down"></i>
+                    </div>
+                    <div class="user-account-settingss">
+                        <a href="#" title=""><h3 class="tc">Logout</h3></a>
+                    </div><!--user-account-settingss end-->
+                </div>
+            </div><!--header-data end-->
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 标签、标签页整体设置 -->
+        <div class="account-tabs-setting">
+            <!-- 标签 -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="acc-leftbar">
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-deactivate-tab" data-toggle="tab"
+                                 href="#home" role="tab" aria-controls="nav-deactivate" aria-selected="false">
+                                <i class="fa fa-pencil"></i>个人资料</a>
+                            <a class="nav-item nav-link" id="nav-requests-tab" data-toggle="tab"
+                               href="#guanzhu" role="tab" aria-controls="nav-requests" aria-selected="false">
+                                <i class="fa fa-book"></i>我的关注</a>
+                            <a class="nav-item nav-link" id="security-login" data-toggle="tab"
+                               href="#fensi" role="tab" aria-controls="security-login" aria-selected="false">
+                                <i class="fa fa-bookmark"></i>我的粉丝</a>
+                            <a class="nav-item nav-link" id="nav-status-tab" data-toggle="tab" href="#shoucang"
+                               role="tab" aria-controls="nav-status" aria-selected="false">
+                                <i class="fa fa-line-chart"></i>我的收藏</a>
+                        </div>
+                    </div><!--acc-leftbar end-->
+                </div>
+            </div>
+            <!-- 标签页 -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab-content" id="nav-tabContent">
+                        <!-- 个人资料标签页 -->
+                        <div class="tab-pane fade in active" id="home">
+                            <!-- 个人信息 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4><strong>个人信息</strong></h4>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form">
+                                        <div class="row">
+                                            <!-- 左侧修改 -->
+                                            <div class="col-sm-8">
+                                                <div class="form-group">
+                                                    <label class="control-label">昵称：</label>
+                                                    <input type="text" class="form-control" id="name" value="孤独的小浣熊">
+                                                    <span class="help-block">其他人可通过该昵称找到你</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">个人简介：</label>
+                                                    <textarea class="form-control" rows="3">I am sunshine</textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="btn btn-success" type="submit" name="" value="更改信息">
+                                                </div>
+                                            </div>
+                                            <!-- 修改头像 -->
+                                            <div class="col-sm-4">
+                                                <div class="row mt-5">
+                                                    <img src="../static/images/resources/user-pro-img.png" class="img-responsive img-rounded center-block" alt="Cinque Terre">
+                                                </div>
+                                                <div class="row mt-4">
+                                                    <div class="btn btn-link center-block" style="position: relative;">
+                                                        修改头像
+                                                        <input type="file" onchange="loadFile(this.files[0])" style="position:absolute;left:20%;top: 0px;opacity:0">
+                                                    </div>   
+                                                 </div>
+                                                <div class="row text-center" id="filename"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- 账号安全 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4><strong class="">账号安全</strong></h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h5><strong class="">登录密码</strong></h5>
+                                        </div>  
+                                        <div class="panel-body">
+                                            <form role="form">
+                                                <div class="row">
+                                                    <!-- 左侧修改 -->
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group">
+                                                            <label class="control-label">旧密码：</label>
+                                                            <input type="password" class="form-control" id="password">
+                                                            <span class="help-block">请输入目前所用密码</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">新密码：</label>
+                                                            <input type="password" class="form-control" id="name" placeholder="请输入新密码">
+                                                            <span class="help-block">密码长度在6-20位之间，且密码必须包含数字、字母</span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">确认密码：</label>
+                                                            <input type="password" class="form-control" id="name" placeholder="请再次输入新密码">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="btn btn-success" type="submit" name="" value="更改密码">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4"></div>  
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h5><strong class="">邮箱账号</strong></h5>
+                                        </div>  
+                                        <div class="panel-body">
+                                            <form role="form">
+                                                <div class="row">
+                                                    <!-- 左侧修改 -->
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group">
+                                                            <label class="control-label">邮箱：</label>
+                                                            <input type="text" class="form-control" id="password" value="1764056039@qq.com">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4"></div>  
+                                                </div>
+                                                <div class="form-group">
+                                                    <span class="help-block">邮箱地址是您用来登录账户的凭证，并帮助您在忘记密码的情况下进行密码重置。为确保您的邮箱地址正确有效，每次更换邮箱之后，请根据操作提示来完成邮箱验证</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="btn btn-success" type="submit" name="" value="更改邮箱">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 我的关注标签页 -->
+                        <div class="tab-pane fade" id="guanzhu">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4><span><strong>我的关注</strong></span><span class="pull-right"><small>共1人</small></span></h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                            <img class="img-responsive img-circle center-block" style="width: 70px;height: 70px" src="../static/images/resources/pf-icon4.png">
+                                        </div>
+                                        <div class="col-sm-11" style="text-align: center;">
+                                            <span class="pull-left">杨锡涛</span>
+                                            <button class="btn btn-default pull-right">已关注</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 我的粉丝标签页 -->
+                        <div class="tab-pane fade" id="fensi">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4><span><strong>我的粉丝</strong></span><span class="pull-right"><small>共1人</small></span></h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                            <img class="img-responsive img-circle center-block" style="width: 70px;height: 70px" src="../static/images/resources/pf-icon4.png">
+                                        </div>
+                                        <div class="col-sm-11" style="text-align: center;">
+                                            <span class="pull-left">杨锡涛</span>
+                                            <button class="btn btn-default pull-right">关注他</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 我的收藏标签页 -->
+                        <div class="tab-pane fade" id="shoucang">
+                            <p>我的收藏</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--account-tabs-setting end-->
+
+    </div><!-- container end -->
+    
+
+</div><!--theme-layout end-->
+
+<script type="text/javascript">
+    function loadFile(file){
+        $("#filename").html(file.name);
+    }
+</script>
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../static/js/popper.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+
+</body>
+</html>
