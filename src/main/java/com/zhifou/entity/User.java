@@ -13,8 +13,9 @@ public class User {
     private String password;
     private String photo;
     private String introduction;
-    private Set<User> attentions = new HashSet<User>();
-    private Set<Note> notes = new HashSet<Note>();
+    private Set<User> attentions = new HashSet<>();
+    private Set<Note> notes = new HashSet<>();
+    private Set<Note> collectNotes = new HashSet<>();
 
     public User() {
     }
@@ -86,15 +87,23 @@ public class User {
         this.introduction = introduction;
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_notes", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "note_id"))
+    @OneToMany(mappedBy="user", targetEntity=Note.class, cascade=CascadeType.ALL)
     public Set<Note> getNotes() {
         return notes;
     }
 
     public void setNotes(Set<Note> notes) {
         this.notes = notes;
+    }
+    @ManyToMany
+    @JoinTable(name = "user_collect_notes", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "note_id"))
+    public Set<Note> getCollectNotes() {
+        return collectNotes;
+    }
+
+    public void setCollectNotes(Set<Note> collectNotes) {
+        this.collectNotes = collectNotes;
     }
 
     @Override

@@ -15,6 +15,7 @@ public class Note {
     private String title;
     private String content;
     private NoteType type;
+    private User author;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,5 +51,14 @@ public class Note {
 
     public void setType(NoteType type) {
         this.type = type;
+    }
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }
