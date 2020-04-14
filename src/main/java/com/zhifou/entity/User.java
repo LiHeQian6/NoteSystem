@@ -87,7 +87,7 @@ public class User {
         this.introduction = introduction;
     }
 
-    @OneToMany(targetEntity=Note.class, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="author", targetEntity=Note.class, cascade=CascadeType.ALL)
     public Set<Note> getNotes() {
         return notes;
     }
