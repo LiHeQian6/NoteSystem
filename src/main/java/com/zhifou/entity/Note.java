@@ -1,6 +1,9 @@
 package com.zhifou.entity;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @program: NoteSystem
@@ -16,6 +19,10 @@ public class Note {
     private String content;
     private NoteType type;
     private User author;
+    private int likeNum;
+    private int lookNum;
+    private Date createTime;
+    private Set<Notification> notifications=new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,5 +67,38 @@ public class Note {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public int getLikeNum() {
+        return likeNum;
+    }
+
+    public void setLikeNum(int likeNum) {
+        this.likeNum = likeNum;
+    }
+
+    public int getLookNum() {
+        return lookNum;
+    }
+
+    public void setLookNum(int lookNum) {
+        this.lookNum = lookNum;
+    }
+
+    @OneToMany(mappedBy = "aboutNote")
+    public Set<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(Set<Notification> notifications) {
+        this.notifications = notifications;
     }
 }

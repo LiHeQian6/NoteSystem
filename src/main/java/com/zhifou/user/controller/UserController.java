@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -62,7 +63,10 @@ public class UserController {
         if(userService.findUserByAccount(account)==null){
             if(password1.equals(password2)){
                 if(vertical.equals(orignVerify)&&account.equals(email)){
-                    if (userService.regist(new User(account,password1))!=0)
+                    User user = new User(account, password1);
+                    user.setCreateTime(new Date());
+                    user.setLastReadTime(new Date());
+                    if (userService.regist(user)!=0)
                         return "注册成功！";
                     return "注册失败";
                 }

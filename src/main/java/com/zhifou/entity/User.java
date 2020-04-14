@@ -1,6 +1,7 @@
 package com.zhifou.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,9 +14,14 @@ public class User {
     private String password;
     private String photo;
     private String introduction;
+    private Date createTime;
+    private Date lastReadTime;//last read system notification time
     private Set<User> attentions = new HashSet<>();
     private Set<Note> notes = new HashSet<>();
     private Set<Note> collectNotes = new HashSet<>();
+    private Set<SystemNotification> systemNotifications = new HashSet<SystemNotification>();
+    private Set<Notification> sendNotifications=new HashSet<>();
+    private Set<Notification> receiveNotifications=new HashSet<>();
 
     public User() {
     }
@@ -106,6 +112,49 @@ public class User {
         this.collectNotes = collectNotes;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastReadTime() {
+        return lastReadTime;
+    }
+
+    public void setLastReadTime(Date lastReadTime) {
+        this.lastReadTime = lastReadTime;
+    }
+
+    @OneToMany(fetch=FetchType.LAZY,mappedBy="user")
+    public Set<SystemNotification> getSystemNotifications() {
+        return systemNotifications;
+    }
+
+    public void setSystemNotifications(Set<SystemNotification> systemNotifications) {
+        this.systemNotifications = systemNotifications;
+    }
+
+    @OneToMany(mappedBy = "from",fetch = FetchType.LAZY)
+    public Set<Notification> getSendNotifications() {
+        return sendNotifications;
+    }
+
+    public void setSendNotifications(Set<Notification> sendNotifications) {
+        this.sendNotifications = sendNotifications;
+    }
+
+    @OneToMany(mappedBy = "to",fetch = FetchType.LAZY)
+    public Set<Notification> getReceiveNotifications() {
+        return receiveNotifications;
+    }
+
+    public void setReceiveNotifications(Set<Notification> receiveNotifications) {
+        this.receiveNotifications = receiveNotifications;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -114,7 +163,9 @@ public class User {
                 ", nickName='" + nickName + '\'' +
                 ", password='" + password + '\'' +
                 ", photo='" + photo + '\'' +
-                ", attentions=" + attentions +
+                ", introduction='" + introduction + '\'' +
+                ", createTime=" + createTime +
+                ", lastReadTime=" + lastReadTime +
                 '}';
     }
 }

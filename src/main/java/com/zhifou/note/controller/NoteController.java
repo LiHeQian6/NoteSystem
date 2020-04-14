@@ -62,4 +62,9 @@ public class NoteController {
     public String edit_note(){
         return "edit_note";
     }
+
+    @RequestMapping("management")
+    public String toManagement(){
+        return "management";
+    }
 }

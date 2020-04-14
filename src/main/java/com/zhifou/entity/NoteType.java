@@ -39,7 +39,7 @@ public class NoteType {
     }
 
     @ManyToOne
-    @JoinColumn(name = "parentId")
+    @JoinColumn(name = "parent_id")
     public NoteType getParentType() {
         return parentType;
     }
