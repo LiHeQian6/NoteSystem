@@ -21,6 +21,7 @@ public class NoteType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "type_id")
     public int getId() {
         return id;
     }
