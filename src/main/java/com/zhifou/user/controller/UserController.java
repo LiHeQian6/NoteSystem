@@ -282,31 +282,17 @@ public class UserController {
      * @Description 验证邮箱
      * @Date 11:04 2020/4/9
      **/
-    @ResponseBody
+//    @ResponseBody
     @RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
     public String forgetPassword(@RequestParam("account")String account,@RequestParam("vertical")String verifyCode,HttpServletRequest request){
         HttpSession session = request.getSession();
         String code = (String) session.getAttribute("verifyCode");
         String email = (String) session.getAttribute("email");
         if (verifyCode.equals(code)&&account.equals(email)){
-            request.setAttribute("changeEmail",account);
-            return "user/changePassword";
-        }
-        return "验证码错误";
-    }
-
-    /**
-     * @Author li
-     * @return java.lang.String
-     * @Description 跳转到修改密码页
-     * @Date 10:55 2020/4/8
-     **/
-    @RequestMapping(value = "/changePassword",method = RequestMethod.GET)
-    public String toChangePassword(HttpServletRequest request){
-        String changeEmail = (String) request.getAttribute("changeEmail");//  ****存在些许问题****
-        if (changeEmail!=null) {
+            session.setAttribute("changeEmail",account);
             return "change_password";
         }
+        request.setAttribute("error","验证码错误");
         return "forget_password";
     }
 
@@ -325,7 +311,8 @@ public class UserController {
         HttpSession session = request.getSession();
         String email = (String) session.getAttribute("changeEmail");
         if (password1.equals(password2)){
-            if (userService.changePassword(email,password1)) {
+            if (email!=null&&!email.equals("")&&userService.changePassword(email,password1)) {
+                session.setAttribute("changeEmail",null);
                 return "修改成功";
             }
             return "修改失败";

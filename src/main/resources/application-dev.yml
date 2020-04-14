@@ -3,7 +3,7 @@ spring:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/note?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: "123"
+    password:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       #最大活跃数
@@ -45,7 +45,7 @@ spring:
         #  禁用HTML页面上的“Reset All”功能
         reset-enable: false
         login-username: admin #监控页面登录的用户名
-        login-password: '040011' #监控页面登录的密码
+        login-password:  #监控页面登录的密码
         #IP白名单(没有配置或者为空，则允许所有访问)
         allow: 127.0.0.1
         #IP黑名单 (存在共同时，deny优先于allow)

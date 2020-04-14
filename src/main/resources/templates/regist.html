@@ -23,7 +23,7 @@
             var againpassword = $("#password2").val();
             var vertical = $("#vertical").val();
             if(account=="" || password==""||againpassword==""||vertical==""){
-                document.getElementById("no-account").className = "visible error-tip"
+                document.getElementById("no-acc-text").innerText = "请填写信息"
                 return;
             }
             if(password >=6 && againpassword >=6) {
@@ -37,12 +37,10 @@
                         window.location.href = "/user/login";
                     } else {
                         document.getElementById("no-acc-text").innerText = data
-                        document.getElementById("no-account").className = "visible error-tip"
                     }
                 });
             }else{
                 document.getElementById("no-acc-text").innerText = "密码长度最低为6位"
-                document.getElementById("no-account").className = "visible error-tip"
             }
         }
 
@@ -53,15 +51,12 @@
             var againpassword = $("#password2").val();
             if(account=="" || password==""||againpassword==""){
                 document.getElementById("no-acc-text").innerText = "请完善信息"
-                document.getElementById("no-account").className = "visible error-tip"
                 return;
             }else if(password.length <6 && againpassword.length <6){
                 document.getElementById("no-acc-text").innerText = "密码最少为6位"
-                document.getElementById("no-account").className = "visible error-tip"
                 return;;
             }else if(!(password == againpassword)){
                 document.getElementById("no-acc-text").innerText = "两次输入密码不一致"
-                document.getElementById("no-account").className = "visible error-tip"
                 return;
             }
             $.get("/user/getVerifyCode/"+account,function (data) {
@@ -155,8 +150,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="invisible error-tip" id="no-account">
-                                            <h6 class="text-danger" id="no-acc-text">请完善信息</h6>
+                                        <div class="col-lg-12 visible error-tip" id="no-account">
+                                            <h6 class="text-danger" id="no-acc-text">&nbsp</h6>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
                                             <div class="loginBtn-div">

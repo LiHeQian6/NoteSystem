@@ -57,4 +57,9 @@ public class NoteController {
         }
         return noteService.findNoteByType(id, PageRequest.of(pageNum, 9));
     }
+
+    @RequestMapping("editNote")
+    public String edit_note(){
+        return "edit_note";
+    }
 }
