@@ -45,4 +45,11 @@ public class NoteService {
     public List<NoteType> findOneLevel(){
         return typeRepository.findAllByParentTypeIsNull();
     }
+    //查询点赞最多20个笔记
+    public Page<Note> findTop20Note(Pageable pageable){
+        return noteRepository.findTop20ByOrderByLikeNumDesc(pageable);
+    }
+
 }
+
+
