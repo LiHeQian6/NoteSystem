@@ -17,4 +17,7 @@ public interface NoteRepository  extends JpaRepository<Note,Integer>, JpaSpecifi
     Page<Note> findNoteByType(int type,Pageable pageable);
 
     Page<Note> findTop20ByOrderByLikeNumDesc(Pageable pageable);
+
+    Page<Note> findNoteByTitleLike(String word,Pageable pageable);
+
 }

@@ -81,6 +81,7 @@ public class NoteController {
         return "detail";
     }
     /**
+     * @description: 首页展示
      * @author :景光赞
      * @date :2020/4/15 11:53
      * @param :[num, model]
@@ -94,5 +95,21 @@ public class NoteController {
         }
         model.addAttribute(noteService.findTop20Note(PageRequest.of(pageNum, 9)));
         return "index";
+    }
+    /**
+     * @description:  按关键字搜索相关笔记
+     * @author :景光赞
+     * @date :2020/4/15 17:01
+     * @param :[num, word]
+     * @return :org.springframework.data.domain.Page<com.zhifou.entity.Note>
+     */
+    @ResponseBody
+    @RequestMapping("/findNoteLike")
+    public Page<Note> findRelativeNote(@RequestParam("pageNum")int num,@RequestParam("word")String word){
+        int pageNum = 0;
+        if(num != 0){
+            pageNum = num;
+        }
+        return noteService.findNoteLike("%"+word+"%",PageRequest.of(pageNum, 9));
     }
 }

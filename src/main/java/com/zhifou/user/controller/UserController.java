@@ -323,5 +323,17 @@ public class UserController {
         }
         return "两次输入密码不一致";
     }
-
+    
+    /**
+     * @description: 展示相关学霸(笔记详情页)
+     * @author :景光赞
+     * @date :2020/4/15 17:35
+     * @param :[typeId]
+     * @return :java.util.List<com.zhifou.entity.User>
+     */
+    @ResponseBody
+    @RequestMapping("/showRelative")
+    public List<User> showSomeUser(@RequestParam("typeId")int typeId){
+        return userService.findRelativeUsers(typeId);
+    }
 }

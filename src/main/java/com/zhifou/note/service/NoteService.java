@@ -49,6 +49,10 @@ public class NoteService {
     public Page<Note> findTop20Note(Pageable pageable){
         return noteRepository.findTop20ByOrderByLikeNumDesc(pageable);
     }
+    //按关键字搜索相关笔记
+    public Page<Note> findNoteLike(String word,Pageable pageable){
+        return noteRepository.findNoteByTitleLike(word,pageable);
+    }
 
 }
 
