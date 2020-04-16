@@ -1,5 +1,6 @@
 package com.zhifou.user.controller;
 
+import com.zhifou.entity.Comment;
 import com.zhifou.entity.User;
 import com.zhifou.note.service.NoteService;
 import com.zhifou.user.service.UserService;
@@ -336,4 +337,13 @@ public class UserController {
     public List<User> showSomeUser(@RequestParam("typeId")int typeId){
         return userService.findRelativeUsers(typeId);
     }
+
+    @ResponseBody
+    @RequestMapping("/addComment")
+    public int addComment(@RequestParam("noteId")int noteId,@RequestParam("userId")int userId,@RequestParam("content")String content){
+        return noteService.addComment(new Comment(userService.findUserById(userId),noteService.findNoteById(noteId),
+                new Date(),content));
+    }
+
+
 }

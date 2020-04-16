@@ -1,6 +1,7 @@
 package com.zhifou.entity;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -17,7 +18,7 @@ public class NoteType {
     private int id;
     private String name;
     private NoteType parentType;
-    private List<NoteType> types = new ArrayList<NoteType>();
+    private Set<NoteType> types = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,11 +50,11 @@ public class NoteType {
     }
 
     @OneToMany(mappedBy = "parentType")
-    public List<NoteType> getTypes() {
+    public Set<NoteType> getTypes() {
         return types;
     }
 
-    public void setTypes(List<NoteType> types) {
+    public void setTypes(Set<NoteType> types) {
         this.types = types;
     }
 }

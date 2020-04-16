@@ -3,9 +3,7 @@ package com.zhifou.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @program: NoteSystem
@@ -26,7 +24,23 @@ public class Note {
     private int likeNum;
     private int lookNum;
     private Date createTime;
+    private Set<Comment> comments = new HashSet<>();
     private Set<Notification> notifications=new HashSet<>();
+
+    public Note(int id) {
+        this.id = id;
+    }
+
+    public Note() {
+    }
+
+    public Note(String title, String content, NoteType type, User author, Date createTime) {
+        this.title = title;
+        this.content = content;
+        this.type = type;
+        this.author = author;
+        this.createTime = createTime;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,6 +110,16 @@ public class Note {
 
     public void setLookNum(int lookNum) {
         this.lookNum = lookNum;
+    }
+
+    @OneToMany(mappedBy="note",targetEntity = Comment.class,cascade=CascadeType.ALL)
+    @JsonIgnoreProperties(ignoreUnknown = true, value = {"note"})
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 
     @OneToMany(mappedBy = "aboutNote")

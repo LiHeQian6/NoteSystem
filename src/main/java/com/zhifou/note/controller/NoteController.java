@@ -1,5 +1,6 @@
 package com.zhifou.note.controller;
 
+import com.zhifou.entity.Comment;
 import com.zhifou.entity.Note;
 import com.zhifou.entity.NoteType;
 import com.zhifou.note.service.NoteService;
@@ -111,5 +112,23 @@ public class NoteController {
             pageNum = num;
         }
         return noteService.findNoteLike("%"+word+"%",PageRequest.of(pageNum, 9));
+    }
+
+    /**
+     * @description:
+     * @author :景光赞
+     * @date :2020/4/16 11:55
+     * @param :[noteId]
+     * @return :java.util.List<com.zhifou.entity.Comment>
+     */
+    @ResponseBody
+    @RequestMapping("/top3Comment")
+    public List<Comment> findTop3Comment(@RequestParam("noteId")int noteId){
+        return noteService.findTop3Comment(noteService.findNoteById(noteId));
+    }
+    @ResponseBody
+    @RequestMapping("/top3Comment2")
+    public List<Comment> findTop3Comment2(){
+        return noteService.findTop3Comment(noteService.findNoteById(1));
     }
 }
