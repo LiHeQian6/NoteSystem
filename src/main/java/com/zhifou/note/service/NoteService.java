@@ -62,8 +62,8 @@ public class NoteService {
         return commentsRepository.findTop3ByNoteOrderByLikeNumDesc(note);
     }
     //展示所有评论，按点赞数量降序排列
-    public Page<Comment> findAllComments(Note note,Pageable pageable){
-        return commentsRepository.findAllByNoteOrderByLikeNumDesc(note,pageable);
+    public List<Comment> findAllComments(Note note){
+        return commentsRepository.findAllByNoteOrderByLikeNumDesc(note);
     }
     //添加评论
     public int addComment(Comment comment){

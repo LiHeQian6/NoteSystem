@@ -14,6 +14,6 @@ public interface CommentsRepository extends JpaRepository<Comment,Integer>, JpaS
 
     List<Comment> findTop3ByNoteOrderByLikeNumDesc(Note note);
 
-    Page<Comment> findAllByNoteOrderByLikeNumDesc(Note note,Pageable pageable);
+    List<Comment> findAllByNoteOrderByLikeNumDesc(Note note);
 
 }

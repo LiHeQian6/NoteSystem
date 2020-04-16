@@ -44,20 +44,20 @@ public class NoteController {
         return noteService.findOneLevel();
     }
     /**
-    * @Description: 分类查询笔记
+    * @Description: 分类查询笔记(分类展示页）
     * @Param:
     * @return:
     * @Author: 景光赞
     * @Date: 2020/4/10
     */
-    @ResponseBody
     @RequestMapping("findByType")
-    public Page<Note> findByType(@RequestParam("typeId")int id,@RequestParam("pageNum")int num){
+    public String findByType(@RequestParam("typeId")int id,@RequestParam("pageNum")int num,Model model){
         int pageNum = 0;
         if(num != 0) {
             pageNum = num;
         }
-        return noteService.findNoteByType(id, PageRequest.of(pageNum, 9));
+        model.addAttribute("noteListByType",noteService.findNoteByType(id, PageRequest.of(pageNum, 9)));
+        return "list";
     }
 
     @RequestMapping("editNote")
@@ -78,7 +78,7 @@ public class NoteController {
     */
     @RequestMapping("/detail")
     public String toDetail(@RequestParam("noteId")int id, Model model){
-        model.addAttribute(noteService.findNoteById(id));
+        model.addAttribute("noteDetail",noteService.findNoteById(id));
         return "detail";
     }
     /**
@@ -94,7 +94,7 @@ public class NoteController {
         if(num != 0) {
             pageNum = num;
         }
-        model.addAttribute(noteService.findTop20Note(PageRequest.of(pageNum, 9)));
+        model.addAttribute("top20note",noteService.findTop20Note(PageRequest.of(pageNum, 9)));
         return "index";
     }
     /**
@@ -106,29 +106,34 @@ public class NoteController {
      */
     @ResponseBody
     @RequestMapping("/findNoteLike")
-    public Page<Note> findRelativeNote(@RequestParam("pageNum")int num,@RequestParam("word")String word){
+    public void findRelativeNote(@RequestParam("pageNum")int num,@RequestParam("word")String word,Model model){
         int pageNum = 0;
         if(num != 0){
             pageNum = num;
         }
-        return noteService.findNoteLike("%"+word+"%",PageRequest.of(pageNum, 9));
+        model.addAttribute("notelike",noteService.findNoteLike("%"+word+"%",PageRequest.of(pageNum, 9)));
     }
 
     /**
-     * @description:
+     * @description: 展示前3条评论
      * @author :景光赞
      * @date :2020/4/16 11:55
      * @param :[noteId]
      * @return :java.util.List<com.zhifou.entity.Comment>
      */
-    @ResponseBody
     @RequestMapping("/top3Comment")
-    public List<Comment> findTop3Comment(@RequestParam("noteId")int noteId){
-        return noteService.findTop3Comment(noteService.findNoteById(noteId));
+    public void findTop3Comment(@RequestParam("noteId")int noteId,Model model){
+        model.addAttribute("top3Comment",noteService.findTop3Comment(noteService.findNoteById(noteId)));
     }
-    @ResponseBody
-    @RequestMapping("/top3Comment2")
-    public List<Comment> findTop3Comment2(){
-        return noteService.findTop3Comment(noteService.findNoteById(1));
+    /**
+     * @description: 展示所有评论
+     * @author :景光赞
+     * @date :2020/4/16 15:34
+     * @param :[noteId, model]
+     * @return :void
+     */
+    @RequestMapping("/allComments")
+    public void findAllComments(@RequestParam("noteId")int noteId,Model model){
+        model.addAttribute("addComment",noteService.findAllComments(noteService.findNoteById(noteId)));
     }
 }
