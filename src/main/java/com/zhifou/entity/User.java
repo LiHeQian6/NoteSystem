@@ -1,5 +1,7 @@
 package com.zhifou.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -7,6 +9,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user")
+@JsonIgnoreProperties(ignoreUnknown = true, value =
+        {"hibernateLazyInitializer", "handler", "fieldHandler"})
 public class User {
     private int id;
     private String account;
@@ -94,6 +98,7 @@ public class User {
     }
 
     @OneToMany(mappedBy="author", targetEntity=Note.class, cascade=CascadeType.ALL)
+    @JsonIgnoreProperties(ignoreUnknown = true, value = {"author"})
     public Set<Note> getNotes() {
         return notes;
     }

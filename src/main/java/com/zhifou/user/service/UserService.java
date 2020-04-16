@@ -9,10 +9,13 @@ import com.zhifou.entity.User;
 import com.zhifou.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.List;
-
+/**
+ * @description:
+ * @author :景光赞
+ * @date :2020/4/15 17:31
+ */
 @Service
 @Transactional(readOnly = true)
 public class UserService {
@@ -62,5 +65,9 @@ public class UserService {
     @Transactional(readOnly = false)
     public int updateUser(User user){
         return userRepository.saveAndFlush(user).getId();
+    }
+
+    public List<User> findRelativeUsers(int typeId){
+        return userRepository.findRelativeUsers(typeId);
     }
 }

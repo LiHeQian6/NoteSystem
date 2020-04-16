@@ -1,11 +1,13 @@
 package com.zhifou.user.controller;
 
+import com.zhifou.entity.Comment;
 import com.zhifou.entity.User;
 import com.zhifou.note.service.NoteService;
 import com.zhifou.user.service.UserService;
 import com.zhifou.util.MailUtil;
 import com.zhifou.util.VerifyUtil;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -121,8 +123,8 @@ public class UserController {
      **/
     @ResponseBody
     @RequestMapping("/list")
-    public List<User> findAllUser(){
-        return userService.findAll();
+    public void findAllUser(Model model){
+        model.addAttribute("allUser",userService.findAll());
     }
     /**
     * @Description: 测试接口
@@ -286,7 +288,6 @@ public class UserController {
      * @Description 验证邮箱
      * @Date 11:04 2020/4/9
      **/
-//    @ResponseBody
     @RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
     public String forgetPassword(@RequestParam("account")String account,@RequestParam("vertical")String verifyCode,HttpServletRequest request){
         HttpSession session = request.getSession();
@@ -322,6 +323,59 @@ public class UserController {
             return "修改失败";
         }
         return "两次输入密码不一致";
+    }
+    
+    /**
+     * @description: 展示相关学霸(笔记详情页)
+     * @author :景光赞
+     * @date :2020/4/15 17:35
+     * @param :[typeId]
+     * @return :java.util.List<com.zhifou.entity.User>
+     */
+    @ResponseBody
+    @RequestMapping("/showRelative")
+    public void showSomeUser(@RequestParam("typeId")int typeId,Model model){
+        model.addAttribute("relative",userService.findRelativeUsers(typeId));
+    }
+
+    /**
+     * @description: 写评论
+     * @author :景光赞
+     * @date :2020/4/16 15:34
+     * @param :[noteId, userId, content]
+     * @return :int
+     */
+    @ResponseBody
+    @RequestMapping("/addComment")
+    public int addComment(@RequestParam("noteId")int noteId,@RequestParam("userId")int userId,@RequestParam("content")String content){
+        return noteService.addComment(new Comment(userService.findUserById(userId),noteService.findNoteById(noteId),
+                new Date(),content));
+    }
+    /**
+     * @description: 修改评论
+     * @author :景光赞
+     * @date :2020/4/16 15:35
+     * @param :[noteId, userId, content]
+     * @return :int
+     */
+    @ResponseBody
+    @RequestMapping("/updateComment")
+    public int updateComment(@RequestParam("noteId")int noteId,@RequestParam("userId")int userId,@RequestParam("content")String content){
+        return noteService.addComment(new Comment(userService.findUserById(userId),noteService.findNoteById(noteId),
+                new Date(),content));
+    }
+    /**
+     * @description: 删除评论
+     * @author :景光赞
+     * @date :2020/4/16 15:35
+     * @param :[noteId, userId, content]
+     * @return :int
+     */
+    @ResponseBody
+    @RequestMapping("/deleteComment")
+    public int deleteComment(@RequestParam("noteId")int noteId,@RequestParam("userId")int userId,@RequestParam("content")String content){
+        return noteService.addComment(new Comment(userService.findUserById(userId),noteService.findNoteById(noteId),
+                new Date(),content));
     }
 
 }
