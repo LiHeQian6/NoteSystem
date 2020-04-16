@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 
 import java.io.Serializable;
 
@@ -14,4 +15,9 @@ public interface NoteRepository  extends JpaRepository<Note,Integer>, JpaSpecifi
     Page<Note> findAll(Pageable pageable);
 
     Page<Note> findNoteByType(int type,Pageable pageable);
+
+    Page<Note> findTop20ByOrderByLikeNumDesc(Pageable pageable);
+
+    Page<Note> findNoteByTitleLike(String word,Pageable pageable);
+
 }
