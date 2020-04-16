@@ -1,13 +1,15 @@
 package com.zhifou.notification.service;
 
 import com.zhifou.entity.SystemNotification;
+import com.zhifou.entity.User;
 import com.zhifou.notification.repository.NotificationRepository;
 import com.zhifou.notification.repository.SystemNotificationRepository;
+import com.zhifou.user.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.Date;
+import java.util.*;
 
 /**
  * User: li
@@ -23,6 +25,9 @@ public class NotificationService {
 
     @Resource
     private SystemNotificationRepository systemNotificationRepository;
+
+    @Resource
+    private UserService userService;
 
     /**
      * @Author li
@@ -40,5 +45,14 @@ public class NotificationService {
             return false;
         }
         return true;
+    }
+
+    public List<Map<SystemNotification, Boolean>> getSystemNotification(int id) {
+        User user = userService.findUserById(id);
+        List<SystemNotification> systemNotificationsToUser = systemNotificationRepository.findSystemNotificationsByUserIs(user);
+        List<SystemNotification> systemNotifications = systemNotificationRepository.findSystemNotificationsByUserIs(null);
+        ArrayList<Map<SystemNotification,Boolean>> list = new ArrayList<>();
+
+        return null;
     }
 }

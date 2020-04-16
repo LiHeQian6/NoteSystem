@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
 
 /**
  * User: li
@@ -32,8 +34,10 @@ public class NotificationController {
      * @Date 11:38 2020/4/14
      **/
     @RequestMapping("/")
-    public String toNotification(){
+    public String toNotification(int id,HttpServletRequest request){
         //TODO 获取所有通知的数据存储到model中，且将用户字段的最近读取系统通知时间修改为现在
+        List<Map<SystemNotification,Boolean>> notificationList=notificationService.getSystemNotification(id);
+        request.setAttribute("systemNotification",notificationList);
         return "notification";
     }
 
@@ -70,7 +74,5 @@ public class NotificationController {
         }
         return "false";
     }
-
-
 
 }
