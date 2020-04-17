@@ -1,5 +1,6 @@
 package com.zhifou.user.controller;
 
+import com.zhifou.annotation.WordFilter;
 import com.zhifou.entity.Comment;
 import com.zhifou.entity.User;
 import com.zhifou.note.service.NoteService;
@@ -212,6 +213,7 @@ public class UserController {
      * @Author: 景光赞
      * @Date: 2020/4/9
      */
+    @WordFilter(description ="updateUser")
     @ResponseBody
     @RequestMapping("/updateUser")
     public String updateUser(@RequestParam(name = "userId")int userId,
@@ -345,9 +347,12 @@ public class UserController {
      * @param :[noteId, userId, content]
      * @return :int
      */
+    @WordFilter(description = "addComment",escapeHtml = true)
     @ResponseBody
     @RequestMapping("/addComment")
-    public int addComment(@RequestParam("noteId")int noteId,@RequestParam("userId")int userId,@RequestParam("content")String content){
+    public int addComment(@RequestParam("noteId")int noteId,
+                          @RequestParam("userId")int userId,
+                          @RequestParam("content")String content){
         return noteService.addComment(new Comment(userService.findUserById(userId),noteService.findNoteById(noteId),
                 new Date(),content));
     }
@@ -358,9 +363,12 @@ public class UserController {
      * @param :[noteId, userId, content]
      * @return :int
      */
+    @WordFilter(description = "updateComment",escapeHtml = true)
     @ResponseBody
     @RequestMapping("/updateComment")
-    public int updateComment(@RequestParam("noteId")int noteId,@RequestParam("userId")int userId,@RequestParam("content")String content){
+    public int updateComment(@RequestParam("noteId")int noteId,
+                             @RequestParam("userId")int userId,
+                             @RequestParam("content")String content){
         return noteService.addComment(new Comment(userService.findUserById(userId),noteService.findNoteById(noteId),
                 new Date(),content));
     }

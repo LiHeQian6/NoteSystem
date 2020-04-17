@@ -24,10 +24,10 @@ public class LogAspect {
 
     ThreadLocal<Long> startTime = new ThreadLocal();
 
-    @Pointcut("execution(public * com.zhifou.user.controller.*.*(..))")
-    public void webLog(){}
+    @Pointcut("execution(public * com.zhifou.*.controller.*.*(..))")
+    public void Log(){}
 
-    @Before("webLog()")
+    @Before("Log()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
         startTime.set(System.currentTimeMillis());
         // 接收到请求，记录请求内容
@@ -43,7 +43,7 @@ public class LogAspect {
         logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
 
     }
-    @AfterReturning(returning = "ret", pointcut = "webLog()")
+    @AfterReturning(returning = "ret", pointcut = "Log()")
     public void doAfterReturning(Object ret) throws Throwable {
         //处理完返回内容
         logger.info("RESPONSE : " + ret);
