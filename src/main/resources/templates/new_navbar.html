@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/navbarStyle.css">
+</head>
+<body>
+    <div th:fragment="header">
+        <nav class="navbar navbar-expand-lg navbar-light navbarStyle">
+            <a class="navbar-brand" href="#">知否笔记</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" style="color: #ffffff">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">理科</a>
+                        <div class="dropdown-menu drop-item-bac" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">高等数学</a>
+                            <a class="dropdown-item" href="#">大学物理</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">文科</a>
+                        <div class="dropdown-menu drop-item-bac" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">英语</a>
+                            <a class="dropdown-item" href="#">政治</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">工科</a>
+                        <div class="dropdown-menu drop-item-bac" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Java</a>
+                            <a class="dropdown-item" href="#">软件工程</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="col-lg-12 search-in-div">
+                        <input class="form-control mr-sm-2 search-in" type="search" placeholder="搜索笔记" aria-label="Search">
+<!--                        <input class="form-control mr-sm-2" type="search" placeholder="搜索笔记" aria-label="Search">-->
+                        <i><svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" clip-rule="evenodd"/>
+                        </svg></i>
+                    </div>
+                </form>
+                <ul class="navbar-nav navbar-right">
+                   <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="D:\图片\素材图片\huanxiong.png" class="img-circle">
+                        </a>
+                        <div class="dropdown-menu drop-item-bac">
+                            <a class="dropdown-item" style="text-align: center">昵称：孤独的小完能</a>
+                            <a class="divider"></a>
+                            <a class="dropdown-item" href="#">我的收藏</a>
+                            <a class="dropdown-item" href="#">注销登录</a>
+                        </div>
+                        <a href="#"><img src="D:\图片\素材图片\铃铛.png" style="width: 22px;height: 22px"></a>
+                   </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

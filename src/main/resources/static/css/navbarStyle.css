@@ -1,0 +1,21 @@
+.navbarStyle{
+    background-color: #ea7c31;
+}
+.navbarStyle a{
+    color: #ffffff !important;
+}
+.search-in-div{
+    background: #ffffff;
+    border-radius: 4px;
+}
+.search-in{
+    border: 0;
+}
+.search-in:focus{
+    outline: none;
+    border: 0;
+    box-shadow: none;
+}
+.drop-item-bac{
+    background-color: #ea7c31;
+}
