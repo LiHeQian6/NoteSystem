@@ -1,7 +1,10 @@
 package com.zhifou.notification.repository;
 
 import com.zhifou.entity.SystemNotification;
+import com.zhifou.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * User: li
@@ -9,4 +12,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 11:04
  */
 public interface SystemNotificationRepository extends JpaRepository<SystemNotification,Integer> {
+    List<SystemNotification> findSystemNotificationsByUserIs(User id);
 }

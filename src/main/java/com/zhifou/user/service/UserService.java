@@ -5,6 +5,7 @@ package com.zhifou.user.service;
  * @author: 景光赞
  * @create: 2020-04-07 20:53
  **/
+import com.zhifou.annotation.Encode;
 import com.zhifou.entity.User;
 import com.zhifou.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class UserService {
     @Resource
     private UserRepository userRepository;
 
+    @Encode(description = "登录")
     public User findUserByAccountAndPassword(String account, String password){
         return userRepository.findUserByAccountAndPassword(account,password);
     }
@@ -38,6 +40,7 @@ public class UserService {
         return userRepository.findUserById(id);
     }
 
+    @Encode(description = "注册")
     @Transactional
     public int regist(User user){
         return userRepository.save(user).getId();
@@ -51,6 +54,7 @@ public class UserService {
      * @Description 修改密码
      * @Date 21:14 2020/4/9
      **/
+    @Encode(description = "修改密码")
     @Transactional
     public boolean changePassword(String email, String password) {
         try {
