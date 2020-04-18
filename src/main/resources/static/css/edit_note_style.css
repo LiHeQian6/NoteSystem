@@ -1,3 +1,13 @@
-.type-list li{
-
+.post-to{
+    padding-top: 15px;
+}
+.ul-group li{
+    text-align: center;
+    background: #ea7c31;
+    padding: 8px 12px 8px 12px;
+    border-radius: 30px !important;
+    color: #ffffff;
+}
+.ul-group-style{
+    padding: 8px 0 15px 10px;
 }
