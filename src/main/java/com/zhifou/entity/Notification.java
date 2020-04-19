@@ -17,6 +17,7 @@ public class Notification {
     private NotificationType notificationType;
     private Date createTime;
     private Note aboutNote;
+    private boolean haveRead;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -71,5 +72,13 @@ public class Notification {
 
     public void setAboutNote(Note aboutNote) {
         this.aboutNote = aboutNote;
+    }
+
+    public boolean isHaveRead() {
+        return haveRead;
+    }
+
+    public void setHaveRead(boolean haveRead) {
+        this.haveRead = haveRead;
     }
 }

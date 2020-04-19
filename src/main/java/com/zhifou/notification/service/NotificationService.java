@@ -47,12 +47,8 @@ public class NotificationService {
         return true;
     }
 
-    public List<Map<SystemNotification, Boolean>> getSystemNotification(int id) {
+    public List<SystemNotification> getSystemNotification(int id, int pageNum) {
         User user = userService.findUserById(id);
-        List<SystemNotification> systemNotificationsToUser = systemNotificationRepository.findSystemNotificationsByUserIs(user);
-        List<SystemNotification> systemNotifications = systemNotificationRepository.findSystemNotificationsByUserIs(null);
-        ArrayList<Map<SystemNotification,Boolean>> list = new ArrayList<>();
-
-        return null;
+        return systemNotificationRepository.findSystemNotificationsByUser(user);
     }
 }
