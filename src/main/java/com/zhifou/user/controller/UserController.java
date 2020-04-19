@@ -375,15 +375,14 @@ public class UserController {
     /**
      * @description: 删除评论
      * @author :景光赞
-     * @date :2020/4/16 15:35
-     * @param :[noteId, userId, content]
-     * @return :int
+     * @date :2020/4/18 12:19
+     * @param :[commentId]
+     * @return :void
      */
     @ResponseBody
     @RequestMapping("/deleteComment")
-    public int deleteComment(@RequestParam("noteId")int noteId,@RequestParam("userId")int userId,@RequestParam("content")String content){
-        return noteService.addComment(new Comment(userService.findUserById(userId),noteService.findNoteById(noteId),
-                new Date(),content));
+    public void deleteComment(@RequestParam("commentId")int commentId){
+        noteService.deleteComment(commentId);
     }
 
 }

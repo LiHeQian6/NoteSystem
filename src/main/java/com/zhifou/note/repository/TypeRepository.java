@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface TypeRepository extends JpaRepository<NoteType,Integer>, JpaSpecificationExecutor<NoteType>, Serializable {
     List<NoteType> findAllByParentTypeIsNull();
+
+    NoteType findNoteTypeById(int id);
 }

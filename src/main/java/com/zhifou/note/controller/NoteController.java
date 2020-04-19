@@ -134,6 +134,26 @@ public class NoteController {
      */
     @RequestMapping("/allComments")
     public void findAllComments(@RequestParam("noteId")int noteId,Model model){
-        model.addAttribute("addComment",noteService.findAllComments(noteService.findNoteById(noteId)));
+        model.addAttribute("addComment",noteService.findAllComments(noteId));
     }
+
+    @ResponseBody
+    @RequestMapping("/writeNote")
+    public int writeNote(@RequestParam("title")String title, @RequestParam("content")String content,
+                         @RequestParam("typeId")int typeId,@RequestParam("userId")int userId){
+        return noteService.addNote(title,content,typeId,userId);
+    }
+    /**
+     * @description: 发布笔记(草稿——>发布)
+     * @author :景光赞
+     * @date :2020/4/19 18:19
+     * @param :[noteId]
+     * @return :int
+     */
+    @ResponseBody
+    @RequestMapping("/pushNote")
+    public int pushNote(@RequestParam("noteId")int noteId){
+        return noteService.pushNote(noteId);
+    }
+
 }

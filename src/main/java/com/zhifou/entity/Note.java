@@ -26,6 +26,7 @@ public class Note {
     private Date createTime;
     private Set<Comment> comments = new HashSet<>();
     private Set<Notification> notifications=new HashSet<>();
+    private int ifPush;
 
     public Note(int id) {
         this.id = id;
@@ -40,6 +41,7 @@ public class Note {
         this.type = type;
         this.author = author;
         this.createTime = createTime;
+        this.ifPush=0;
     }
 
     @Id
@@ -129,5 +131,13 @@ public class Note {
 
     public void setNotifications(Set<Notification> notifications) {
         this.notifications = notifications;
+    }
+
+    public int getIfPush() {
+        return ifPush;
+    }
+
+    public void setIfPush(int ifPush) {
+        this.ifPush = ifPush;
     }
 }
