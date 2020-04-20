@@ -137,6 +137,13 @@ public class NoteController {
         model.addAttribute("addComment",noteService.findAllComments(noteId));
     }
 
+    /**
+     * @description:  写笔记（草稿）
+     * @author :景光赞
+     * @date :2020/4/20 9:25
+     * @param :[title, content, typeId, userId]
+     * @return :int
+     */
     @ResponseBody
     @RequestMapping("/writeNote")
     public int writeNote(@RequestParam("title")String title, @RequestParam("content")String content,

@@ -55,7 +55,7 @@ public class NoteService {
     }
     //查询点赞最多20个笔记
     public Page<Note> findTop20Note(Pageable pageable){
-        return noteRepository.findTop20ByIfPushAndOrderByLikeNumDesc(1,pageable);
+        return noteRepository.findTop20ByIfPushOrderByLikeNumDesc(1,pageable);
     }
     //按关键字搜索相关笔记
     public Page<Note> findNoteLike(String word,Pageable pageable){
@@ -85,8 +85,11 @@ public class NoteService {
         commentsRepository.deleteById(commentId);
     }
     //发布笔记
+    @Transactional(readOnly = false)
     public int pushNote(int noteId){
-        return noteRepository.saveAndFlush(findNoteById(noteId)).getIfPush();
+        Note note = findNoteById(noteId);
+        note.setIfPush(1);
+        return noteRepository.saveAndFlush(note).getIfPush();
     }
 
     //写草稿
