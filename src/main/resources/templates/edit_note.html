@@ -39,7 +39,7 @@
         $(function() {
             var editor = editormd("editor", {
                 width: "100%",
-                height: "800px",
+                height: "700px",
                 // markdown: "xxxx",     // dynamic set Markdown text
                 path : "../static/lib/editor.md/lib/"  // Autoload modules mode, codemirror, marked... dependents libs path
             });
@@ -104,6 +104,16 @@
                 <div class="col-lg-12" id="editor">
                     <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
                     <textarea style="display:none;">### Hello Editor.md !</textarea>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="m-auto col-lg-8 form-inline" style="padding: 0">
+                        <div class="col-lg-6 m-auto btn-div-pdd">
+                            <button type="button" class="m-auto col-lg-5 btn btn-info">存为草稿</button>
+                        </div>
+                        <div class="col-lg-6 m-auto btn-div-pdd">
+                            <button type="button" class="m-auto col-lg-5 btn btn-success">发布</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

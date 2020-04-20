@@ -3,14 +3,14 @@ package com.zhifou.notification.controller;
 import com.zhifou.entity.SystemNotification;
 import com.zhifou.entity.User;
 import com.zhifou.notification.service.NotificationService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Map;
 
@@ -34,10 +34,17 @@ public class NotificationController {
      * @Date 11:38 2020/4/14
      **/
     @RequestMapping("/")
-    public String toNotification(int id,HttpServletRequest request){
+    public String toNotification(@RequestParam(value = "pageNum",required = false,defaultValue = "1") int pageNum, HttpServletRequest request){
+        if (pageNum==0){
+            pageNum=1;
+        }
+        User user = (User) request.getSession().getAttribute("user");
+        if (user==null){
+            return "login";
+        }
         //TODO 获取所有通知的数据存储到model中，且将用户字段的最近读取系统通知时间修改为现在
-        List<Map<SystemNotification,Boolean>> notificationList=notificationService.getSystemNotification(id);
-        request.setAttribute("systemNotification",notificationList);
+        List<SystemNotification> systemNotifications=notificationService.getSystemNotification(user.getId(),pageNum);
+        request.setAttribute("systemNotification",systemNotifications);
         return "notification";
     }
 
