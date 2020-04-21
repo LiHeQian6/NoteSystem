@@ -1,3 +1,12 @@
+.big-div{
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    float: left
+}
+.no-pdd{
+    padding: 0;
+}
 .post-to{
     padding-top: 15px;
 }
