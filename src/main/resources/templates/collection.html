@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>归尘博客管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/line-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/line-awesome-font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.7.0.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../static/lib/editor/css/editormd.css">
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+    <header>
+        <div class="container">
+            <div class="header-data">
+                <div class="forum-bar">
+                    <a style="display: inline-block" href="index.html" title="">
+                        <img src="../static/images/cloud.png" alt="">
+                    </a>
+                    <h2 style="float: right">博客管理系统</h2>
+                </div>
+                <div class="user-account">
+                    <div class="user-info">
+                        <img src="../static/images/resources/user.png" alt="">
+                        <a href="#" title="">John</a>
+                        <i class="la la-sort-down"></i>
+                    </div>
+                    <div class="user-account-settingss">
+                        <a href="#" title=""><h3 class="tc">Logout</h3></a>
+                    </div><!--user-account-settingss end-->
+                </div>
+            </div><!--header-data end-->
+        </div>
+    </header>
+
+
+    <section class="profile-account-setting">
+        <div class="container">
+            <div class="account-tabs-setting">
+                <div class="row" style="margin-bottom: 20px">
+                    <div class="col-12">
+                        <div class="acc-leftbar">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist" >
+                                <a class="nav-item nav-link active" id="nav-requests-tab" data-toggle="tab"
+                                   href="#nav-requests" role="tab" aria-controls="nav-requests" aria-selected="false">
+                                    <i class="fa fa-book"></i>管理笔记</a>
+                                <a class="nav-item nav-link" id="nav-status-tab" data-toggle="tab" href="#nav-status"
+                                   role="tab" aria-controls="nav-status" aria-selected="false">
+                                    <i class="fa fa-heart-o"></i>收藏笔记</a>
+                            </div>
+                        </div><!--acc-leftbar end-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-requests" role="tabpanel" aria-labelledby="nav-requests-tab">
+                                <div class="acc-setting">
+                                    <div class="requests-list">
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo1">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解spring</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo1" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo2">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo2" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo3">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo3" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo4">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo4" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo5">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo5" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo6">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">编辑</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo6" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <nav aria-label="Page navigation example" style="width: 100%">
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div><!--requests-list end-->
+                                </div><!--acc-setting end-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-status" role="tabpanel" aria-labelledby="nav-requests-tab">
+                                <div class="acc-setting">
+                                    <div class="requests-list">
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo11">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解spring</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <span style="margin-left: 30px;font-size: 16px;font-weight: 800;">作者：小小</span>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">取消收藏</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo11" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo21">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <span style="margin-left: 30px;font-size: 16px;font-weight: 800;">作者：小大</span>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">取消收藏</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo21" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo31">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <span style="margin-left: 30px;font-size: 16px;font-weight: 800;">作者：小死</span>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">取消收藏</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo31" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo41">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <span style="margin-left: 30px;font-size: 16px;font-weight: 800;">作者：小哦</span>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">取消收藏</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo41" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo51">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <span style="margin-left: 30px;font-size: 16px;font-weight: 800;">作者：小吗</span>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">取消收藏</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo51" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+                                        <div class="request-details" data-toggle="collapse" data-target="#demo61">
+                                            <div class="request-info">
+                                                <h2 style="font-size: 20px;font-weight: 900;">深入理解JVM</h2>
+                                                <span style="margin-left: 10px;">2019年9月9日</span>
+                                            </div>
+                                            <span style="margin-left: 30px;font-size: 16px;font-weight: 800;">作者：小小</span>
+                                            <div class="accept-feat">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="accept-req">取消收藏</button>
+                                                    </li>
+                                                    <li>
+                                                        <button type="submit" class="close-req"><i
+                                                                class="la la-close"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div><!--accept-feat end-->
+                                            <div id="demo61" style="float: left" class="collapse">
+                                                <div style="padding: 20px;">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at libero
+                                                        elit. Mauris ultrices sed lorem nec efficitur. Donec sit amet facilisis lorem,
+                                                        quis facilisis tellus. Nullam mollis dignissim nisi sit amet tempor. Nullam
+                                                        sollicitudin neque a felis commodo gravida at sed nunc. In justo nunc, sagittis
+                                                        sed venenatis at, dictum vel erat. Curabitur at quam ipsum. Quisque eget nibh
+                                                        aliquet, imperdiet diam pharetra, dapibus lacus. Sed tincidunt sapien in dui
+                                                        imperdiet eleifend. Ut ut sagittis purus, non tristique elit. Quisque tincidunt
+                                                        metus eget ligula sodales luctus. Donec convallis ex at dui convallis malesuada.
+                                                        Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+                                                        ridiculus mus. Ut pretium euismod mollis. Pellentesque convallis gravida ante eu
+                                                        pretium. Integer rutrum mi nec purus tincidunt, nec rhoncus mauris porttitor.
+                                                        Donec id tellus at leo gravida egestas. Suspendisse consequat mi vel euismod
+                                                        efficitur. Donec sed elementum libero.</p>
+                                                    <p> Etiam rutrum ut urna eu tempus. Curabitur suscipit quis lorem vel dictum.
+                                                        Aliquam erat volutpat. Pellentesque volutpat viverra pulvinar. Mauris ac sapien
+                                                        ac metus tincidunt volutpat eu eu purus. Suspendisse pharetra quis quam id
+                                                        auctor. Pellentesque feugiat venenatis urna, vitae suscipit enim volutpat vitae.
+                                                        Nunc egestas tortor est, at sodales ligula auctor efficitur.</p>
+                                                </div>
+
+                                            </div>
+                                        </div><!--request-detailse end-->
+
+
+
+                                        <nav aria-label="Page navigation example" style="width: 100%">
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div><!--requests-list end-->
+                                </div><!--acc-setting end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--account-tabs-setting end-->
+        </div>
+    </section>
+
+</div><!--theme-layout end-->
+
+<div class="chatbox-list">
+    <div class="chatbox">
+        <div class="chat-mg bx" style="margin: 20px 10px">
+            <div class="go-top">
+                <div class="arrow" style="text-align: center"><i class="fa fa-chevron-up"></i></div>
+            </div>
+        </div>
+    </div>
+</div><!--chatbox-list end-->
+
+<!--<footer class="myfooter">-->
+<!--    <div class="footy-sec mn no-margin">-->
+<!--        <div class="container">-->
+<!--            <p class="text-center" style="float: none"><img src="../static/images/copy-icon2.png" alt="">Copyright 2020 本归尘博客系统由游马版权所有</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../static/js/popper.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="../static/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="../static/js/script.js"></script>
+<script type="text/javascript" src="../static/lib/editor/editormd.min.js"></script>
+
+</body>
+</html>

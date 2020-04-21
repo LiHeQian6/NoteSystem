@@ -10,6 +10,54 @@
     <link rel="stylesheet" type="text/css" href="../static/lib/editor.md/css/editormd.min.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/navbarStyle.css">
     <link rel="stylesheet" type="text/css" href="../static/css/edit_note_style.css">
+    <script type="text/javascript">
+        function onClickClose(x) {
+            var item=document.createElement("a");
+            item.className="dropdown-item";
+            item.setAttribute("onclick", "onClickDropdownItem(this)");
+            item.innerHTML=x.previousSibling.nodeValue;
+            var menu = $(".dropdown-menu")[0];
+            if (menu.firstElementChild.innerHTML==="快去添加新的标签吧！") {
+                menu.innerHTML="";
+            }
+            menu.append(item);
+
+            x.parentNode.remove();
+        }
+        function onClickDropdownItem(x) {
+            var tab=document.createElement("li");
+            var tabi=document.createElement("i");
+            tab.innerHTML=x.innerHTML;
+            tabi.className = "fa fa-times-circle";
+            tabi.setAttribute("onclick", "onClickClose(this)");
+            tabi.style="margin-left:5px;margin-right: -2px;cursor:pointer";
+            tab.append(tabi);
+            $(".quest-tags-b").append(tab);
+            if(x.parentElement.childElementCount===1){
+                x.innerHTML="快去添加新的标签吧！";
+                x.onclick=null;
+            }else{
+                x.remove();
+            }
+        }
+        function onClickCreate() {
+            var tab=document.createElement("li");
+            var tabi=document.createElement("i");
+            var newType = $("#new_type").val();
+            tab.innerHTML=newType;
+            tabi.className = "fa fa-times-circle";
+            tabi.setAttribute("onclick", "onClickClose(this)");
+            tabi.style="margin-left:5px;margin-right: -2px;cursor:pointer";
+            tab.append(tabi);
+            $(".quest-tags-b").append(tab);
+            if(x.parentElement.childElementCount===1){
+                x.innerHTML="快去添加新的标签吧！";
+                x.onclick=null;
+            }else{
+                x.remove();
+            }
+        }
+    </script>
     <style>
         .navbar-brand{
             margin-left: 40px;
@@ -36,10 +84,12 @@
     </style>
     <script src="../static/lib/editor.md/editormd.min.js"></script>
     <script th:inline="javascript" type="text/javascript">
+        var editor;
         $(function() {
-            var editor = editormd("editor", {
+            editor = editormd("editor", {
                 width: "100%",
                 height: "700px",
+                syncScrolling : "single",
                 // markdown: "xxxx",     // dynamic set Markdown text
                 path : "../static/lib/editor.md/lib/"  // Autoload modules mode, codemirror, marked... dependents libs path
             });
@@ -47,6 +97,7 @@
     </script>
 </head>
 <body>
+<div class="big-div">
     <div th:replace="new_navbar::header"></div>
     <div style="width: 100%">
         <div class="container">
@@ -59,49 +110,29 @@
                 </div>
                 <div class="col-lg-12 post-to">
                     <h6><strong>发布到</strong></h6>
-                    <div class="col-lg-12 ul-group-style">
-                        <ul class="list-group list-group-horizontal-sm ul-group align-items-center">
-                            <li class="list-group-item">Java
-                                <svg class="bi bi-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" clip-rule="evenodd"/>
-                                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" clip-rule="evenodd"/>
-                                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" clip-rule="evenodd"/>
-                                </svg>
-                            </li>
-                            <li class="list-group-item">Android
-                                <svg class="bi bi-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" clip-rule="evenodd"/>
-                                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" clip-rule="evenodd"/>
-                                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" clip-rule="evenodd"/>
-                                </svg>
-                            </li>
-                            <li class="list-group-item">HTML
-                                <svg class="bi bi-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" clip-rule="evenodd"/>
-                                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" clip-rule="evenodd"/>
-                                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" clip-rule="evenodd"/>
-                                </svg>
-                            </li>
-                            <div class="col-lg-3 dropdown">
-                                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    选择一个分类
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Java</a>
-                                    <a class="dropdown-item" href="#">Android</a>
-                                    <a class="dropdown-item" href="#">Python</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 input-group pull-right">
-                                <input type="text" class="form-control" placeholder="创建一个新标签" aria-label="创建一个新标签" aria-describedby="button-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">创建</button>
-                                </div>
-                            </div>
+                    <div class="row align-items-center ul-group-style">
+                        <ul class="quest-tags-b align-items-center" style="float:left;margin-top: 0;width: auto">
+                            <li>Work<i class="fa fa-times-circle" onclick="onClickClose(this)" style="margin-left:5px;margin-right: -2px;cursor:pointer"></i></li>
+                            <li>Php<i class="fa fa-times-circle" onclick="onClickClose(this)" style="margin-left:5px;margin-right: -2px;cursor:pointer"></i></li>
+                            <li>Design<i class="fa fa-times-circle" onclick="onClickClose(this)" style="margin-left:5px;margin-right: -2px;cursor:pointer"></i></li>
                         </ul>
+                        <button type="button" style="margin-left: 19px" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            添加一个分类
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" onclick="onClickDropdownItem(this)" href="#">c++</a>
+                            <a class="dropdown-item" onclick="onClickDropdownItem(this)" href="#">php</a>
+                            <a class="dropdown-item" onclick="onClickDropdownItem(this)" href="#">Design</a>
+                        </div>
+                        <div class="col-lg-4 input-group pull-right" style="z-index: 0">
+                            <input type="text" class="form-control" id="new_type" placeholder="创建一个新标签" aria-label="创建一个新标签" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="onClickCreate()" id="button-addon2">创建</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-12" id="editor">
+                <div class="col-lg-12 no-pdd" id="editor" style="z-index: 1">
                     <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
                     <textarea style="display:none;">### Hello Editor.md !</textarea>
                 </div>
@@ -118,7 +149,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
 <!--    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
     <script src="../static/lib/editor/editormd.min.js"></script>

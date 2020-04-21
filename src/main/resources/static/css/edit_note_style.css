@@ -1,12 +1,28 @@
+.big-div{
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    float: left
+}
+.no-pdd{
+    padding: 0;
+}
 .post-to{
     padding-top: 15px;
 }
-.ul-group li{
-    text-align: center;
-    background: #ea7c31;
-    padding: 8px 12px 8px 12px;
-    border-radius: 30px !important;
+.quest-tags-b{
+    margin-bottom: 0;
+}
+.quest-tags-b li{
+    display: inline-block;
     color: #ffffff;
+    background-color: #53d690;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border-radius: 30px;
+    padding: 7px 15px;
 }
 .ul-group-style{
     padding: 8px 0 15px 10px;
