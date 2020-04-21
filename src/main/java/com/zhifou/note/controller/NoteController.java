@@ -60,14 +60,34 @@ public class NoteController {
         return "list";
     }
 
-    @RequestMapping("editNote")
+    /**
+     * @description: 跳到发布笔记页
+     * @author :景光赞
+     * @date :2020/4/21 15:08
+     * @param :[]
+     * @return :java.lang.String
+     */
+    @RequestMapping("pushNote")
     public String edit_note(){
-        return "edit_note";
+        return "push_note";
     }
 
-    @RequestMapping("management")
-    public String toManagement(){
-        return "management";
+    /**
+     * @description: 跳到管理笔记页
+     * @author :景光赞
+     * @date :2020/4/21 15:08
+     * @param :[]
+     * @return :java.lang.String
+     */
+    @RequestMapping("manageNote")
+    public String toManagement(@RequestParam("num")int num,@RequestParam("userId")int userId,Model model){
+        int pageNum = 0;
+        if(num != 0){
+            pageNum = num;
+        }
+        model.addAttribute("manage_pushed_notes",noteService.findNoteByUserId(userId,PageRequest.of(pageNum, 9)));
+        model.addAttribute("manage_draft_notes",noteService.findNoteByUserId(userId,PageRequest.of(pageNum, 9)));
+        return "manage_note";
     }
     /**
     * @Description: 笔记详情页
@@ -161,6 +181,24 @@ public class NoteController {
     @RequestMapping("/pushNote")
     public int pushNote(@RequestParam("noteId")int noteId){
         return noteService.pushNote(noteId);
+    }
+    /**
+     * @description: 修改笔记发布 / 直接发布笔记
+     * @author :景光赞
+     * @date :2020/4/21 18:39
+     * @param :[title, content, typeId, userId]
+     * @return :int
+     */
+    @ResponseBody
+    @RequestMapping("/editNote")
+    public int editNote(@RequestParam("title")String title, @RequestParam("content")String content,
+                        @RequestParam("typeId")int typeId,@RequestParam("userId")int userId){
+        return noteService.writeNote(title,content,typeId,userId);
+    }
+    @ResponseBody
+    @RequestMapping("/deleteNote")
+    public void deleteNote(@RequestParam("noteId")int noteId){
+        noteService.deleteNote(noteId);
     }
 
 }

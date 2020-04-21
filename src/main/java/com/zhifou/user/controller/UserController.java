@@ -328,7 +328,7 @@ public class UserController {
     }
     
     /**
-     * @description: 展示相关学霸(笔记详情页)
+     * @description: 展示相关学霸(笔记详情页里)
      * @author :景光赞
      * @date :2020/4/15 17:35
      * @param :[typeId]

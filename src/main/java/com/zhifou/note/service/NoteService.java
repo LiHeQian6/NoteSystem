@@ -3,6 +3,7 @@ package com.zhifou.note.service;
 import com.zhifou.entity.Comment;
 import com.zhifou.entity.Note;
 import com.zhifou.entity.NoteType;
+import com.zhifou.entity.User;
 import com.zhifou.note.repository.CommentsRepository;
 import com.zhifou.note.repository.NoteRepository;
 import com.zhifou.note.repository.TypeRepository;
@@ -97,6 +98,29 @@ public class NoteService {
     public int addNote(String title,String content,int typeId,int userId){
         return noteRepository.save(new Note(title,content,findNoteTypeById(typeId),
                 userRepository.findUserById(userId),new Date())).getIfPush();
+    }
+    //管理页笔记查询(已发布的）
+    public Page<Note> findNoteByUserId(int authorId,Pageable pageable){
+        User user = userRepository.findUserById(authorId);
+        return noteRepository.findNoteByAuthorAndIfPush(user,1,pageable);
+    }
+    //管理页笔记查询(草稿）
+    public Page<Note> findDraftByUserId(int authorId,Pageable pageable){
+        User user = userRepository.findUserById(authorId);
+        return noteRepository.findNoteByAuthorAndIfPush(user,0,pageable);
+    }
+    //直接写笔记（发布）
+    @Transactional(readOnly = false)
+    public int writeNote(String title,String content,int typeId,int userId){
+        Note note = new Note(title,content,findNoteTypeById(typeId),
+                userRepository.findUserById(userId),new Date());
+        note.setIfPush(1);
+        return noteRepository.save(note).getIfPush();
+    }
+    //删除笔记
+    @Transactional(readOnly = false)
+    public void deleteNote(int noteId){
+        noteRepository.delete(findNoteById(noteId));
     }
 }
 
