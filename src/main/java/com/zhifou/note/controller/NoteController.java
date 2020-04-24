@@ -67,7 +67,7 @@ public class NoteController {
      * @param :[]
      * @return :java.lang.String
      */
-    @RequestMapping("pushNote")
+    @RequestMapping("toPushNote")
     public String edit_note(){
         return "push_note";
     }
