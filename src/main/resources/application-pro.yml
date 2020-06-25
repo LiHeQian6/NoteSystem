@@ -1,6 +1,8 @@
 spring:
   thymeleaf:
     mode: HTML
+    prefix:
+      classpath: /templates
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/note?useUnicode=true&characterEncoding=utf-8

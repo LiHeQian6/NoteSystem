@@ -2305,9 +2305,8 @@ select {
 /* =============== login-sec ============= */
 
 .login-sec {
-    float: left;
     width: 100%;
-    padding: 30px 0;
+    padding: 15px 0;
     position: relative;
 }
 .login-gtn-group{
@@ -3918,7 +3917,7 @@ a:hover {
     padding: 0;
 }
 .regist-pdd{
-    padding: 10px 0 0 0;
+    min-height: auto;
 }
 .input-group{
     padding: 0;
@@ -3960,7 +3959,6 @@ a:hover {
     width: 100%;
 }
 .loginBtn-div{
-    padding-top: 10px;
     padding-left: 70px;
     padding-right: 70px;
 }

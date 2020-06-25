@@ -1,9 +1,12 @@
 spring:
+  thymeleaf:
+    prefix:
+      classpath: /templates
   datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/note?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: 
+    username: sun
+    password: '285714'
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       #最大活跃数

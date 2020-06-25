@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>知否笔记登录</title>
@@ -109,8 +109,8 @@
             </div><!--signin-pop end-->
         </div><!--signin-popup end-->
     </div><!--sign-in-page end-->
-
 </div><!--theme-layout end-->
+<div th:replace="new_navbar :: footer" class="row"></div>
 <!--<div class="footy-sec">-->
 <!--    <div class="container text-center">-->
 <!--        <p style="float: none"><img style="float: none" src="../static/images/copy-icon.png" alt="">Copyright 2020 本归尘博客系统由游马版权所有</p>-->

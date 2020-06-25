@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>知否笔记注册</title>
@@ -151,7 +151,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 visible error-tip" id="no-account">
-                                            <h6 class="text-danger" id="no-acc-text">&nbsp</h6>
+                                            <h6 class="text-danger" style="margin: 0;padding: 0" id="no-acc-text">&nbsp</h6>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
                                             <div class="loginBtn-div">
@@ -172,6 +172,7 @@
     </div><!--sign-in-page end-->
 
 </div><!--theme-layout end-->
+<div th:replace="new_navbar :: footer"></div>
 <!--<div class="footy-sec">-->
 <!--    <div class="container text-center">-->
 <!--        <p style="float: none"><img style="float: none" src="../static/images/copy-icon.png" alt="">Copyright 2020 本归尘博客系统由游马版权所有</p>-->
